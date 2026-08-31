@@ -33,7 +33,8 @@
   },
   "wallets": {
     "vault": null,
-    "operations": null
+    "vaultNote": "Squads multisig vault address. Created in Phase 2 — not the signer key.",
+    "operations": "GT1GViiJ3FeFYzsqHpt19gLqPi5D9AXNjfMqzuoykeZr"
   },
   "links": {
     "x": "https://x.com/CardVaultSOL",
