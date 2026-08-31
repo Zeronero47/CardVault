@@ -25,11 +25,40 @@ Nothing here costs money. Do not launch the token until all of it is done.
 
 - [x] Handle secured: **@CardVaultSOL** on X and Telegram
 - [x] Links written into `vault.json` → footer populates automatically
-- [ ] Register both accounts before the site goes live, or the footer links 404
-- [ ] Set X bio and pinned post
-- [ ] Set Telegram description and pinned message
-- [ ] Trademark sanity check on "Card Vault"
-- [ ] Commission or create **original** artwork — no official card art, no rights-holder logos
+- [x] Both accounts registered
+- [x] X bio and pinned post set
+- [x] Telegram description and pinned message set
+- [x] Trademark sanity check done — **decision: keep the name, do not pursue registration**
+- [x] Original brand assets created — see [brand/](brand/)
+
+### Naming finding
+
+"Card Vault" is a crowded descriptive term in the collectibles space: several
+collection-tracker apps of that name on iOS and Android, plus a UK trading-card
+retailer trading as The Card Vault. No party holds strong exclusive rights,
+so conflict risk is low — but registration is correspondingly hard and not
+worth pursuing at this budget.
+
+The real cost is discoverability, not legal exposure. The `@CardVaultSOL`
+handle disambiguates well. Distinctiveness has to come from the visual
+identity, not the name.
+
+### Competitive landscape
+
+The space has established players, and both use mechanisms this project
+deliberately rejected:
+
+* **Collector Crypt (CARDS)** — Solana, tokenises physical cards into
+  *redeemable* NFTs with a gacha mechanic. Over $50M cumulative protocol
+  revenue by June 2026.
+* **Collector Vault** — live breaks, fractional ownership, and a token
+  described as *treasury-backed* with cards providing *tangible backing*.
+
+Read this two ways. The thesis is validated: someone is making real money
+from crypto plus trading cards. But Card Vault will compete against projects
+that are willing to promise redemption and backing, which it will not.
+Verifiability is the differentiator, and it has to be executed well enough
+to be worth more than a promise.
 - [x] First-acquisition deadline set: **2026-10-30**
 - [x] Fee split set: **70 Vault / 30 Operations**
 - [x] Season 1 category set: **One Piece Card Game**
