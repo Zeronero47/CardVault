@@ -38,7 +38,7 @@ Nothing here costs money. Do not launch the token until all of it is done.
 - [x] Pump.fun fee model verified against official documentation (see README §3)
 - [x] Set reference confirmed: **OP07-051**
 - [x] Denomination decided: **SOL** — native Pump.fun convention, deepest routing, and volume is the only thing that funds the Vault
-- [ ] Prepare the launch post — apply [README §10 language discipline](README.md#10--language-discipline)
+- [x] Launch post and coin metadata prepared — see [LAUNCH.md](LAUNCH.md)
 
 ### Naming finding
 
@@ -74,11 +74,51 @@ to be worth more than a promise.
 
 ---
 
+## Phase 1b — Custom domain (`cardvault.art`)
+
+Order matters. Adding the `CNAME` file makes GitHub redirect `zeronero47.github.io`
+to the custom domain, so doing it before DNS resolves takes the site **offline**.
+
+- [ ] Push the site and enable Pages — verify it works at `zeronero47.github.io/CardVault`
+- [ ] Domain acquired
+- [ ] Set DNS at the registrar (see below), then wait for propagation
+- [ ] Confirm propagation: `nslookup cardvault.art` returns the GitHub IPs
+- [ ] **Only then**: add a file named `CNAME` (no extension) in the repo root containing exactly `cardvault.art`
+- [ ] GitHub → Settings → Pages → Custom domain → `cardvault.art`
+- [ ] Wait for the certificate, then tick **Enforce HTTPS**
+- [ ] Update the URL in `vault.json` links, README §12, X bio, X pinned post, Telegram description and pinned message
+
+### DNS records
+
+Apex domain — four A records (confirm against GitHub's current Pages docs before entering):
+
+```
+A    @    185.199.108.153
+A    @    185.199.109.153
+A    @    185.199.110.153
+A    @    185.199.111.153
+```
+
+Optional `www` subdomain:
+
+```
+CNAME    www    zeronero47.github.io
+```
+
+Propagation usually takes minutes but can take up to 24–48 hours. The HTTPS
+certificate is issued by GitHub only after the domain resolves correctly, so
+`Enforce HTTPS` stays greyed out until then. That is expected, not a fault.
+
+**Launch the token after the domain is live**, so the launch post carries the
+final URL instead of one that redirects.
+
+---
+
 ## Phase 2 — Launch
 
 - [x] Create VAULT and OPERATIONS wallets — addresses in `vault.json`, verified on mainnet
 - [x] Custody decision: **single-signature wallet for now, not Squads**. Deploy was quoted at ~0.1028 SOL for a 1-of-1 multisig, which buys no security over a plain wallet and would consume half the declared budget before any revenue. Migration trigger and reasoning in [TREASURY.md](TREASURY.md).
-- [ ] Launch `$VAULT` on Pump.fun
+- [ ] Launch `$VAULT` on Pump.fun — fields ready in [LAUNCH.md](LAUNCH.md)
 - [ ] Configure Creator Fee Sharing with the confirmed split
 - [ ] Fill `vault.json`: `token.contract`, `token.launchedAt`, both wallet addresses
 - [ ] Commit and push — the site flips from `PRE-LAUNCH` to `LIVE` on its own
