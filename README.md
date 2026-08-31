@@ -56,17 +56,19 @@ Creator Fees (~0.30%)
         ↓
 Split at platform level
         ↓
-50% Vault  ·  50% Operations
+70% Vault  ·  30% Operations
 ```
 
 Pump.fun documents a **0.30% Creator Fee** on the standard bonding-curve model. Fee structures can change.
 
-| Trading Volume | Approx. Creator Fees* | To Vault (50%) |
+At a 70% Vault split, the Vault receives **0.21% of trading volume**.
+
+| Trading Volume | Approx. Creator Fees* | To Vault (70%) |
 | -------------: | --------------------: | -------------: |
-|        $10,000 |                   $30 |            $15 |
-|       $100,000 |                  $300 |           $150 |
-|     $1,000,000 |                $3,000 |         $1,500 |
-|    $10,000,000 |               $30,000 |        $15,000 |
+|        $10,000 |                   $30 |            $21 |
+|       $100,000 |                  $300 |           $210 |
+|     $1,000,000 |                $3,000 |         $2,100 |
+|    $10,000,000 |               $30,000 |        $21,000 |
 
 *Simplified theoretical calculation. Actual revenue differs.
 
@@ -85,25 +87,40 @@ The Vault is **collective and indivisible**. It is one collection, not many.
 
 The Vault exists to be looked at, documented and grown — not distributed.
 
-### Category focus
+### Season 1 — One Piece Card Game
 
-Season 1 focuses on **one** category rather than collecting everything. The specific category is chosen at the first acquisition, based on what the budget can actually buy.
+Season 1 focuses on **one** category rather than collecting everything.
 
 ---
 
-# 5. ⏳ The First Acquisition — a deadline, not a target
+# 5. ⏳ Two different commitments
+
+These are deliberately separate. Conflating them would turn an honest deadline into a promise the project cannot keep.
+
+### 5.1 The deadline — a date, not an amount
 
 Most projects promise "we will buy when we have enough", and that date never arrives.
 
-Card Vault commits to a **date** instead of an amount:
-
 ```text
-FIRST ACQUISITION COMMITTED BY: 2026-11-29
+FIRST ACQUISITION COMMITTED BY: 2026-10-30
 ```
 
-On that date the first card is bought with whatever the Vault holds, the category and the specific card are chosen, and the purchase is documented.
+On that date the first card is bought **with whatever the Vault holds**, and the purchase is documented. If that is €40, the Vault acquires a €40 graded card and says exactly that.
 
 **If the Vault is empty on that date, the site will say so.** A deadline you can fail publicly is worth more than a target you can postpone privately.
+
+### 5.2 The Season 1 target — the grail
+
+```text
+Boa Hancock — Manga Rare (OP01-078), PSA 10
+Estimated €3,500
+```
+
+This is the card that defines the season. It is a **destination, not a schedule**, and the deadline above does not commit to it.
+
+At a 70% Vault split of a 0.30% creator fee, €3,500 requires roughly **€1.67M in cumulative trading volume**. That number is published openly rather than hidden, because anyone can compute it and the project has nothing to gain from them being surprised by it.
+
+Every card acquired before the grail is progress toward it, and content in its own right.
 
 ---
 

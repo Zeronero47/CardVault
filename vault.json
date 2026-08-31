@@ -13,10 +13,21 @@
     "launchedAt": null
   },
   "config": {
-    "firstAcquisitionDeadline": "2026-11-29",
+    "firstAcquisitionDeadline": "2026-10-30",
     "creatorFeeRate": 0.003,
-    "allocation": { "vault": 0.5, "operations": 0.5 },
+    "allocation": { "vault": 0.7, "operations": 0.3 },
     "manifestSlots": 8
+  },
+  "season": {
+    "number": 1,
+    "category": "One Piece Card Game",
+    "target": {
+      "item": "Boa Hancock — Manga Rare",
+      "ref": "OP01-078",
+      "grade": "PSA 10",
+      "estimateEur": 3500,
+      "note": "Verify set reference and current market estimate before launch."
+    }
   },
   "wallets": {
     "vault": null,

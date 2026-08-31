@@ -29,8 +29,11 @@ Nothing here costs money. Do not launch the token until all of it is done.
 - [ ] Add real links to `vault.json` → `links` (site picks them up automatically)
 - [ ] Trademark sanity check on "Card Vault"
 - [ ] Commission or create **original** artwork — no official card art, no rights-holder logos
-- [ ] Confirm the first-acquisition deadline (currently `2026-11-29`)
-- [ ] Confirm the fee split (currently 50 / 50)
+- [x] First-acquisition deadline set: **2026-10-30**
+- [x] Fee split set: **70 Vault / 30 Operations**
+- [x] Season 1 category set: **One Piece Card Game**
+- [x] Season 1 target set: **Boa Hancock — Manga Rare, PSA 10, ~€3,500**
+- [ ] Verify the set reference (`OP01-078`) and refresh the PSA 10 market estimate
 - [ ] Re-verify current Pump.fun creator fee mechanics and fee-sharing setup
 - [ ] Prepare the launch post — apply [README §10 language discipline](README.md#10--language-discipline)
 
@@ -69,7 +72,7 @@ Nothing here costs money. Do not launch the token until all of it is done.
 
 ## Phase 4 — First acquisition (by the committed deadline)
 
-- [ ] Choose the category, then the specific card, within the actual budget
+- [ ] Shortlist One Piece Card Game cards within the **actual** budget, not the target budget
 - [ ] Community vote on the shortlist
 - [ ] Purchase — prefer an already-graded card so the certificate is immediately verifiable
 - [ ] Record in `vault.json`: transaction hash, SOL, EUR rate, price, grader, certificate number, receipt
@@ -106,13 +109,16 @@ Not before. Each item requires professional review.
 
 ## Decisions still open
 
-| # | Decision | Current placeholder |
+| # | Decision | Status |
 |---|---|---|
-| 1 | First-acquisition deadline | `2026-11-29` (90 days) — change in `vault.json` |
-| 2 | Fee split Vault / Operations | 50 / 50 |
-| 3 | Season 1 category | Chosen at first acquisition, budget-driven |
-| 4 | Logo and art direction | Deferred |
-| 5 | Custody arrangement | Deferred to Phase 5 |
+| 1 | First-acquisition deadline | ✅ `2026-10-30` (60 days) |
+| 2 | Fee split Vault / Operations | ✅ 70 / 30 |
+| 3 | Season 1 category | ✅ One Piece Card Game |
+| 4 | Season 1 target | ✅ Boa Hancock Manga Rare, PSA 10, ~€3,500 |
+| 5 | Set reference + price estimate | ⬜ Verify `OP01-078` and refresh the estimate |
+| 6 | Logo and art direction | ⬜ Deferred |
+| 7 | Custody arrangement | ⬜ Deferred to Phase 5 |
+| 8 | Handles and trademark check | ⬜ Open |
 
 ---
 
@@ -123,3 +129,4 @@ Not before. Each item requires professional review.
 * Announcing a giveaway before the legal structure exists
 * Selling Vault cards for anything other than more Vault cards
 * Editing history in `vault.json` instead of appending corrections
+* **Reproducing official card artwork** — name a target card in text, never publish its art. Photographs of a card the Vault physically owns are a separate matter; publisher artwork and logos are not ours to republish.
