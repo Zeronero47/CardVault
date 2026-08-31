@@ -76,8 +76,8 @@ to be worth more than a promise.
 
 ## Phase 2 — Launch
 
-- [ ] Create VAULT and OPERATIONS wallets
-- [ ] Set up the Squads multisig for VAULT
+- [x] Create VAULT and OPERATIONS wallets — addresses in `vault.json`, verified on mainnet
+- [x] Custody decision: **single-signature wallet for now, not Squads**. Deploy was quoted at ~0.1028 SOL for a 1-of-1 multisig, which buys no security over a plain wallet and would consume half the declared budget before any revenue. Migration trigger and reasoning in [TREASURY.md](TREASURY.md).
 - [ ] Launch `$VAULT` on Pump.fun
 - [ ] Configure Creator Fee Sharing with the confirmed split
 - [ ] Fill `vault.json`: `token.contract`, `token.launchedAt`, both wallet addresses
@@ -151,7 +151,7 @@ Not before. Each item requires professional review.
 | 5 | Set reference + price estimate | ✅ `OP07-051`, ~€3,500 |
 | 5b | Pair denomination | ✅ SOL |
 | 6 | Brand assets | ✅ Built — see [brand/](brand/) |
-| 7 | Custody arrangement | ⬜ Deferred to Phase 5 |
+| 7 | Custody arrangement | ✅ Single-sig now; Squads once Vault >€200–300 **and** a real second signer exists |
 | 8 | Handles + trademark | ✅ @CardVaultSOL secured; name kept, no registration |
 
 ---

@@ -1,7 +1,7 @@
 {
   "meta": {
     "project": "Card Vault",
-    "updated": "2026-08-31",
+    "updated": "2026-09-01",
     "currency": "EUR",
     "rule": "Single source of truth for every number on the site. Never write a figure here that is not backed by a public transaction hash or a public grading certificate number."
   },
@@ -32,9 +32,9 @@
     }
   },
   "wallets": {
-    "vault": null,
-    "vaultNote": "Squads multisig vault address. Created in Phase 2 — not the signer key.",
-    "operations": "GT1GViiJ3FeFYzsqHpt19gLqPi5D9AXNjfMqzuoykeZr"
+    "vault": "9Z13RZfSxKrmNcrnzTdhM19TcYfdNjM8Uj9stdFR83Ep",
+    "operations": "GT1GViiJ3FeFYzsqHpt19gLqPi5D9AXNjfMqzuoykeZr",
+    "custodyNote": "Single-signature wallet. Auditable by anyone on-chain, but not multisig-secured. Migration to a Squads multisig is planned once the Vault holds enough to justify the ~0.1 SOL deployment cost, and will be published with its transaction trail."
   },
   "links": {
     "x": "https://x.com/CardVaultSOL",

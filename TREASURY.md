@@ -31,11 +31,26 @@ Why this matters: the split is enforced by the platform, not by our word. There 
 
 ---
 
-## Layer 2 — Vault wallet as multisig
+## Layer 2 — Vault wallet custody
 
-The VAULT wallet is a **Squads** multisig (on-chain, free, publicly viewable dashboard).
+The VAULT is currently a **single-signature wallet**, not a multisig.
 
-**Honest limitation:** with a single operator this starts as 1-of-1. That provides *auditability*, not *security* — one key can still move funds. A second signer is added as soon as there is a trusted collaborator. We state this rather than implying custody guarantees that do not exist.
+**State this plainly rather than implying custody guarantees that do not exist:** one key can move the funds. What the setup does provide is full auditability — anyone can read the balance and every transaction on Solscan without asking us for anything.
+
+### Why not a multisig yet
+
+A Squads multisig was priced during setup at **~0.1028 SOL** to deploy (0.1 SOL one-time platform fee plus rent). With a single operator the only threshold available is 1-of-1, which provides no security benefit over a plain wallet — one key still authorises everything. Paying roughly half of the project's entire declared budget for that, before the Vault holds anything and before demand is validated, contradicts the principle in [README §16](../README.md#14--mvp): validate before spending.
+
+### Migration trigger
+
+Move the Vault to a Squads multisig when **both** are true:
+
+1. The Vault holds enough that ~0.1 SOL is a rounding error rather than half the budget — roughly €200–300
+2. There is a genuine second signer, so the threshold can be 2-of-2 or better
+
+A second wallet controlled by the same person is not a second signer. It is security theatre, and presenting it as multisig protection would be misleading.
+
+The migration changes the published Vault address. That is acceptable and will be published as an event with its full transaction trail — a project strengthening custody once it has something to guard is a better story than one that spent its budget on empty infrastructure.
 
 ---
 
