@@ -1,0 +1,32 @@
+{
+  "meta": {
+    "project": "Card Vault",
+    "updated": "2026-08-31",
+    "currency": "EUR",
+    "rule": "Single source of truth for every number on the site. Never write a figure here that is not backed by a public transaction hash or a public grading certificate number."
+  },
+  "token": {
+    "ticker": "VAULT",
+    "chain": "Solana",
+    "platform": "Pump.fun",
+    "contract": null,
+    "launchedAt": null
+  },
+  "config": {
+    "firstAcquisitionDeadline": "2026-11-29",
+    "creatorFeeRate": 0.003,
+    "allocation": { "vault": 0.5, "operations": 0.5 },
+    "manifestSlots": 8
+  },
+  "wallets": {
+    "vault": null,
+    "operations": null
+  },
+  "links": {
+    "x": null,
+    "telegram": null,
+    "repo": "https://github.com/Zeronero47/CardVault"
+  },
+  "fees": [],
+  "acquisitions": []
+}

@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Card Vault — Every trade builds the Vault.</title>
+<meta name="description" content="A collectible vault funded by crypto-native revenue. Every acquisition is public and verifiable. Holders receive nothing.">
+<meta property="og:title" content="Card Vault">
+<meta property="og:description" content="Every trade builds the Vault.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#E9E7E2; --paper-deep:#DFDCD5; --ink:#0A0A0A; --ink-soft:#55524C;
+  --rule:#C5C1B8; --seal:#C41E1E; --dot:rgba(10,10,10,.55);
+  --display:"Archivo Black",Impact,"Haettenschweiler",sans-serif;
+  --body:"Archivo",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){
+  :root{ --paper:#101010; --paper-deep:#181817; --ink:#EDEAE3; --ink-soft:#9A968D;
+         --rule:#332F2B; --seal:#E4443F; --dot:rgba(237,234,227,.42); }
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--paper); color:var(--ink);
+  font-family:var(--body); font-size:16px; line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit}
+code{font-family:var(--mono); font-size:.92em}
+.wrap{width:100%; max-width:1120px; margin:0 auto; padding:0 24px}
+
+/* ---------- masthead ---------- */
+.masthead{
+  position:sticky; top:0; z-index:50; background:var(--paper);
+  border-bottom:1px solid var(--rule);
+}
+.masthead-in{
+  display:flex; align-items:center; justify-content:space-between; gap:16px;
+  height:52px; font-family:var(--mono); font-size:11px; letter-spacing:.14em; text-transform:uppercase;
+}
+.masthead-mark{font-family:var(--display); font-size:15px; letter-spacing:.02em}
+.masthead-meta{color:var(--ink-soft); display:flex; gap:18px; align-items:center}
+.masthead-meta .sep{opacity:.4}
+@media (max-width:640px){ .masthead-meta .hide-sm{display:none} }
+
+/* ---------- hero ---------- */
+.hero{position:relative; overflow:hidden; border-bottom:1px solid var(--rule)}
+.hero-tone{
+  position:absolute; inset:0; pointer-events:none;
+  background-image:radial-gradient(var(--dot) 1.05px,transparent 1.25px);
+  background-size:6px 6px;
+  -webkit-mask-image:linear-gradient(160deg,#000 0%,transparent 62%);
+  mask-image:linear-gradient(160deg,#000 0%,transparent 62%);
+  opacity:.5;
+}
+.hero-in{position:relative; padding:88px 0 72px}
+.hero-eyebrow{
+  font-family:var(--mono); font-size:11px; letter-spacing:.2em; text-transform:uppercase;
+  color:var(--ink-soft); margin:0 0 22px;
+}
+.hero-title{
+  font-family:var(--display); font-size:clamp(58px,13.5vw,152px); line-height:.84;
+  letter-spacing:-.025em; margin:0 0 26px; text-transform:uppercase;
+}
+.hero-title span{display:block}
+.hero-lede{
+  font-size:clamp(19px,2.4vw,26px); line-height:1.35; max-width:24ch;
+  margin:0 0 44px; font-weight:500;
+}
+.hero-lede b{font-weight:600; border-bottom:2px solid var(--seal); padding-bottom:1px}
+
+/* ---------- commitment ---------- */
+.commit{
+  border:1px solid var(--ink); background:var(--paper-deep);
+  padding:26px 28px; max-width:640px;
+}
+.commit-label{
+  font-family:var(--mono); font-size:10.5px; letter-spacing:.19em; text-transform:uppercase;
+  color:var(--ink-soft); margin:0 0 14px;
+}
+.clock{display:flex; gap:22px; flex-wrap:wrap; margin:0 0 16px}
+.clock-unit{min-width:56px}
+.clock-n{
+  font-family:var(--display); font-size:clamp(30px,5.4vw,44px); line-height:1;
+  color:var(--seal); font-variant-numeric:tabular-nums; display:block;
+}
+.clock-l{
+  font-family:var(--mono); font-size:9.5px; letter-spacing:.17em; text-transform:uppercase;
+  color:var(--ink-soft); margin-top:7px; display:block;
+}
+.commit-note{font-size:14.5px; line-height:1.5; color:var(--ink-soft); margin:0; max-width:52ch}
+.commit-note strong{color:var(--ink); font-weight:600}
+
+/* ---------- generic band ---------- */
+.band{padding:74px 0; border-bottom:1px solid var(--rule)}
+.band-head{margin:0 0 38px}
+.band-kicker{
+  font-family:var(--mono); font-size:10.5px; letter-spacing:.19em; text-transform:uppercase;
+  color:var(--ink-soft); margin:0 0 12px;
+}
+.band-title{
+  font-family:var(--display); font-size:clamp(28px,4.6vw,44px); line-height:1; margin:0 0 14px;
+  letter-spacing:-.015em; text-transform:uppercase;
+}
+.band-sub{font-size:16.5px; color:var(--ink-soft); margin:0; max-width:58ch}
+
+/* ---------- manifest ---------- */
+.slots{
+  display:grid; grid-template-columns:repeat(auto-fill,minmax(140px,1fr)); gap:14px;
+}
+.slot{
+  position:relative; aspect-ratio:5/7; border:1px solid var(--rule);
+  display:flex; flex-direction:column; justify-content:space-between; padding:13px;
+  background:var(--paper-deep); overflow:hidden;
+}
+.slot.is-empty{border-style:dashed}
+.slot-tone{
+  position:absolute; inset:0; pointer-events:none;
+  background-image:radial-gradient(var(--dot) 1.15px,transparent 1.35px);
+  background-size:7px 7px; opacity:.3;
+}
+.slot.is-filled{background:var(--ink); color:var(--paper); border-color:var(--ink); border-style:solid}
+.slot-id{font-family:var(--mono); font-size:11px; letter-spacing:.12em; position:relative}
+.slot-body{position:relative}
+.slot-state{
+  font-family:var(--mono); font-size:10px; letter-spacing:.15em; text-transform:uppercase;
+  color:var(--ink-soft);
+}
+.slot.is-filled .slot-state{color:var(--paper); opacity:.62}
+.slot-name{font-weight:600; font-size:14.5px; line-height:1.25; margin:5px 0 0}
+.slot-cert{font-family:var(--mono); font-size:10px; margin-top:7px; opacity:.72; word-break:break-all}
+.slot-cert a{text-decoration:underline; text-underline-offset:2px}
+
+/* ---------- ledger ---------- */
+.ledger{border-top:1px solid var(--ink)}
+.row{
+  display:flex; justify-content:space-between; align-items:baseline; gap:20px;
+  padding:15px 0; border-bottom:1px solid var(--rule);
+}
+.row-k{
+  font-family:var(--mono); font-size:11px; letter-spacing:.13em; text-transform:uppercase;
+  color:var(--ink-soft); flex-shrink:0;
+}
+.row-v{font-family:var(--mono); font-size:14px; text-align:right; word-break:break-all}
+.row-v.is-big{font-family:var(--display); font-size:23px; letter-spacing:-.01em}
+.row-v.is-muted{color:var(--ink-soft)}
+
+/* ---------- negative space (disclaimer) ---------- */
+.neg{background:var(--ink); color:var(--paper); border-bottom:none}
+.neg .band-kicker{color:rgba(237,234,227,.55)}
+.neg .band-sub{color:rgba(237,234,227,.68)}
+.neg-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(258px,1fr)); gap:2px; margin-top:10px}
+.neg-item{background:rgba(237,234,227,.055); padding:20px 21px; font-size:15px; line-height:1.45}
+.neg-item b{display:block; font-family:var(--mono); font-size:10px; letter-spacing:.17em;
+  text-transform:uppercase; color:rgba(237,234,227,.5); margin-bottom:9px; font-weight:500}
+.neg-close{margin:34px 0 0; font-size:17px; line-height:1.45; max-width:52ch; font-weight:500}
+
+/* ---------- loop ---------- */
+.loop{display:grid; grid-template-columns:repeat(auto-fit,minmax(196px,1fr)); gap:1px;
+  background:var(--rule); border:1px solid var(--rule)}
+.loop-step{background:var(--paper); padding:22px}
+.loop-n{font-family:var(--mono); font-size:10.5px; letter-spacing:.16em; color:var(--seal); margin-bottom:11px}
+.loop-h{font-family:var(--display); font-size:17px; text-transform:uppercase; margin:0 0 7px; letter-spacing:-.005em}
+.loop-p{font-size:14.5px; color:var(--ink-soft); margin:0; line-height:1.45}
+.loop-back{font-family:var(--mono); font-size:11px; letter-spacing:.14em; text-transform:uppercase;
+  color:var(--ink-soft); margin:16px 0 0; text-align:right}
+
+/* ---------- footer ---------- */
+.foot{padding:46px 0 60px}
+.foot-in{display:flex; justify-content:space-between; gap:26px; flex-wrap:wrap; align-items:flex-end}
+.foot-links{display:flex; gap:22px; flex-wrap:wrap; font-family:var(--mono); font-size:12px;
+  letter-spacing:.11em; text-transform:uppercase}
+.foot-links a{text-decoration:none; border-bottom:1px solid var(--rule); padding-bottom:3px}
+.foot-links a:hover{border-color:var(--ink)}
+.foot-links .is-off{color:var(--ink-soft); border-bottom-style:dashed}
+.foot-fine{font-size:12.5px; color:var(--ink-soft); max-width:46ch; line-height:1.5; margin:0}
+
+:focus-visible{outline:2px solid var(--seal); outline-offset:3px}
+@media (prefers-reduced-motion:no-preference){
+  .slot{animation:rise .5s cubic-bezier(.2,.7,.3,1) backwards}
+}
+@keyframes rise{from{opacity:0; transform:translateY(9px)}to{opacity:1; transform:none}}
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="wrap masthead-in">
+    <div class="masthead-mark">CARD VAULT</div>
+    <div class="masthead-meta">
+      <span id="m-ticker">$VAULT</span>
+      <span class="sep hide-sm">/</span>
+      <span class="hide-sm">SOLANA</span>
+      <span class="sep">/</span>
+      <span id="m-status">PRE-LAUNCH</span>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-tone"></div>
+  <div class="wrap hero-in">
+    <p class="hero-eyebrow">Collectible vault · funded by trading revenue · publicly audited</p>
+    <h1 class="hero-title"><span>Card</span><span>Vault</span></h1>
+    <p class="hero-lede">Every trade builds the Vault. <b>Nobody takes anything out.</b></p>
+
+    <div class="commit">
+      <p class="commit-label">First acquisition committed by <span id="c-date">—</span></p>
+      <div class="clock" id="clock">
+        <div class="clock-unit"><span class="clock-n" id="c-d">—</span><span class="clock-l">Days</span></div>
+        <div class="clock-unit"><span class="clock-n" id="c-h">—</span><span class="clock-l">Hours</span></div>
+        <div class="clock-unit"><span class="clock-n" id="c-m">—</span><span class="clock-l">Min</span></div>
+        <div class="clock-unit"><span class="clock-n" id="c-s">—</span><span class="clock-l">Sec</span></div>
+      </div>
+      <p class="commit-note">On this date the first card is bought with whatever the Vault holds, and the purchase is documented here. <strong>If the Vault is empty, this page will say so.</strong></p>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <div class="band-head">
+      <p class="band-kicker">Section 01 — Holdings</p>
+      <h2 class="band-title">The Manifest</h2>
+      <p class="band-sub">Every card the Vault holds, with its grading certificate number. Anyone can check a certificate in the grader's public database. Empty slots are empty.</p>
+    </div>
+    <div class="slots" id="slots"></div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <div class="band-head">
+      <p class="band-kicker">Section 02 — Treasury</p>
+      <h2 class="band-title">Vault State</h2>
+      <p class="band-sub">Every figure below is derived from <code>vault.json</code> in the public repository. No number on this page is typed by hand.</p>
+    </div>
+    <div class="ledger" id="ledger"></div>
+  </div>
+</section>
+
+<section class="band neg">
+  <div class="wrap">
+    <div class="band-head">
+      <p class="band-kicker">Section 03 — Scope</p>
+      <h2 class="band-title">What $VAULT is not</h2>
+      <p class="band-sub">This is the most important section on the page, so it is not written in small type at the bottom.</p>
+    </div>
+    <div class="neg-grid">
+      <div class="neg-item"><b>Not backing</b>The cards do not back the token. $VAULT is not a claim on the Vault or on anything in it.</div>
+      <div class="neg-item"><b>Not redeemable</b>There is no mechanism, now or planned, to exchange tokens for a card or for its value.</div>
+      <div class="neg-item"><b>Not a share</b>Holding $VAULT gives you no ownership of any card, no share of revenue, and no entitlement to creator fees.</div>
+      <div class="neg-item"><b>Not a giveaway</b>No giveaway is running. Holding the token does not enter you into anything.</div>
+      <div class="neg-item"><b>Not an investment</b>No return is promised or implied. The token can go to zero, and most tokens like it do.</div>
+      <div class="neg-item"><b>Not affiliated</b>No connection to One Piece, Pokémon, Magic: The Gathering, Yu-Gi-Oh!, Bandai, Toei, Shueisha, or any rights holder.</div>
+    </div>
+    <p class="neg-close">The Vault is a collection bought with project revenue and documented in public. That is the whole of it.</p>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <div class="band-head">
+      <p class="band-kicker">Section 04 — Mechanism</p>
+      <h2 class="band-title">How it works</h2>
+      <p class="band-sub">Four steps, then it repeats. The card is the content, and the content is the reason anyone looks.</p>
+    </div>
+    <div class="loop">
+      <div class="loop-step"><div class="loop-n">STEP 01</div><h3 class="loop-h">Trade</h3><p class="loop-p">Trading $VAULT generates creator fees on Pump.fun.</p></div>
+      <div class="loop-step"><div class="loop-n">STEP 02</div><h3 class="loop-h">Split</h3><p class="loop-p">Fees are split at platform level between the Vault wallet and operations. No manual transfer sits in between.</p></div>
+      <div class="loop-step"><div class="loop-n">STEP 03</div><h3 class="loop-h">Acquire</h3><p class="loop-p">The Vault buys a graded card. Transaction hash, price and certificate number are published here.</p></div>
+      <div class="loop-step"><div class="loop-n">STEP 04</div><h3 class="loop-h">Show</h3><p class="loop-p">The card becomes content. Content brings attention. Attention brings trading.</p></div>
+    </div>
+    <p class="loop-back">↺ back to step 01</p>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap foot-in">
+    <div class="foot-links" id="links"></div>
+    <p class="foot-fine">Card Vault is an experiment, not a financial product. Nothing here is investment advice. Cards held by the Vault are never sold except to acquire further cards for the Vault.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var $ = function(id){ return document.getElementById(id); };
+  var esc = function(s){ return String(s == null ? "" : s).replace(/[&<>"']/g, function(c){
+    return {"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c]; }); };
+  var eur = function(n){ return "€" + (n||0).toLocaleString("en-GB",{minimumFractionDigits:2,maximumFractionDigits:2}); };
+  var pad = function(n){ return String(n).padStart(2,"0"); };
+  var short = function(a){ return a ? a.slice(0,6)+"…"+a.slice(-6) : null; };
+
+  function render(v){
+    var cfg = v.config||{}, tok = v.token||{}, w = v.wallets||{};
+    var fees = v.fees||[], acq = v.acquisitions||[];
+
+    if(tok.ticker) $("m-ticker").textContent = "$"+tok.ticker;
+    $("m-status").textContent = tok.contract ? "LIVE" : "PRE-LAUNCH";
+
+    var dl = cfg.firstAcquisitionDeadline ? new Date(cfg.firstAcquisitionDeadline+"T12:00:00Z") : null;
+    if(dl && !isNaN(dl)){
+      $("c-date").textContent = dl.toLocaleDateString("en-GB",{day:"numeric",month:"long",year:"numeric"});
+      var tick = function(){
+        var ms = dl - new Date();
+        if(ms <= 0){
+          $("clock").innerHTML = '<div class="clock-unit" style="min-width:auto">'
+            + '<span class="clock-n">DUE</span><span class="clock-l">Deadline reached</span></div>';
+          return;
+        }
+        var s = Math.floor(ms/1000);
+        $("c-d").textContent = Math.floor(s/86400);
+        $("c-h").textContent = pad(Math.floor(s%86400/3600));
+        $("c-m").textContent = pad(Math.floor(s%3600/60));
+        $("c-s").textContent = pad(s%60);
+      };
+      tick(); setInterval(tick,1000);
+    }
+
+    var slots = Math.max(cfg.manifestSlots||8, acq.length);
+    var html = "";
+    for(var i=0;i<slots;i++){
+      var a = acq[i], id = "#"+String(i+1).padStart(3,"0");
+      var delay = ' style="animation-delay:'+(i*45)+'ms"';
+      if(a){
+        var cert = "";
+        if(a.cert){
+          cert = a.certUrl
+            ? '<a href="'+esc(a.certUrl)+'" rel="noopener">CERT '+esc(a.cert)+'</a>'
+            : "CERT "+esc(a.cert);
+        }
+        html += '<article class="slot is-filled"'+delay+'><div class="slot-id">'+id+'</div>'
+             +  '<div class="slot-body"><div class="slot-state">'+esc(a.grader||"Acquired")+'</div>'
+             +  '<p class="slot-name">'+esc(a.item)+'</p><div class="slot-cert">'+cert+'</div></div></article>';
+      } else {
+        html += '<article class="slot is-empty"'+delay+'><div class="slot-tone"></div>'
+             +  '<div class="slot-id">'+id+'</div>'
+             +  '<div class="slot-body"><div class="slot-state">Empty</div></div></article>';
+      }
+    }
+    $("slots").innerHTML = html;
+
+    var inflow = fees.reduce(function(t,f){ return t+(f.eur||0); },0);
+    var spent  = acq.reduce(function(t,a){ return t+(a.priceEur||0); },0);
+    var alloc  = cfg.allocation||{};
+    var rows = [
+      ["Vault balance", eur(inflow-spent), "is-big"],
+      ["Fees routed to Vault", eur(inflow)+"  ("+fees.length+" claims)", ""],
+      ["Spent on acquisitions", eur(spent), ""],
+      ["Cards held", String(acq.length), ""],
+      ["Fee split", "Vault "+Math.round((alloc.vault||0)*100)+"% / Ops "+Math.round((alloc.operations||0)*100)+"%", ""],
+      ["Contract", esc(tok.contract) || "Not launched yet", tok.contract?"":"is-muted"],
+      ["Vault wallet", esc(short(w.vault)) || "Published at launch", w.vault?"":"is-muted"],
+      ["Operations wallet", esc(short(w.operations)) || "Published at launch", w.operations?"":"is-muted"],
+      ["Last updated", esc(v.meta&&v.meta.updated) || "—", "is-muted"]
+    ];
+    $("ledger").innerHTML = rows.map(function(r){
+      return '<div class="row"><span class="row-k">'+r[0]+'</span>'
+           + '<span class="row-v '+r[2]+'">'+r[1]+'</span></div>';
+    }).join("");
+
+    var L = v.links||{};
+    var defs = [["X",L.x],["Telegram",L.telegram],["Source",L.repo],["vault.json","./vault.json"]];
+    $("links").innerHTML = defs.map(function(d){
+      return d[1] ? '<a href="'+esc(d[1])+'" rel="noopener">'+d[0]+'</a>'
+                  : '<a class="is-off" aria-disabled="true">'+d[0]+' — soon</a>';
+    }).join("");
+  }
+
+  fetch("./vault.json",{cache:"no-store"})
+    .then(function(r){ if(!r.ok) throw new Error(r.status); return r.json(); })
+    .then(render)
+    .catch(function(){
+      $("ledger").innerHTML = '<div class="row"><span class="row-k">Status</span>'
+        + '<span class="row-v is-muted">vault.json unavailable</span></div>';
+    });
+})();
+</script>
+</body>
+</html>
