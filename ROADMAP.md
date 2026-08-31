@@ -23,18 +23,21 @@ Executable steps in order. Each phase has an exit condition — do not start the
 
 Nothing here costs money. Do not launch the token until all of it is done.
 
-- [ ] Check handle availability: X, Telegram, and optionally a domain
-- [ ] Create X account, set bio and pinned post with the disclaimer
-- [ ] Create Telegram channel
-- [ ] Add real links to `vault.json` → `links` (site picks them up automatically)
+- [x] Handle secured: **@CardVaultSOL** on X and Telegram
+- [x] Links written into `vault.json` → footer populates automatically
+- [ ] Register both accounts before the site goes live, or the footer links 404
+- [ ] Set X bio and pinned post
+- [ ] Set Telegram description and pinned message
 - [ ] Trademark sanity check on "Card Vault"
 - [ ] Commission or create **original** artwork — no official card art, no rights-holder logos
 - [x] First-acquisition deadline set: **2026-10-30**
 - [x] Fee split set: **70 Vault / 30 Operations**
 - [x] Season 1 category set: **One Piece Card Game**
 - [x] Season 1 target set: **Boa Hancock — Manga Rare, PSA 10, ~€3,500**
-- [ ] Verify the set reference (`OP01-078`) and refresh the PSA 10 market estimate
-- [ ] Re-verify current Pump.fun creator fee mechanics and fee-sharing setup
+- [x] Price estimate confirmed at €3,500 — checked, with deliberate headroom
+- [x] Pump.fun fee model verified against official documentation (see README §3)
+- [ ] Confirm the set reference (`OP01-078`) against the physical card
+- [ ] **Decide denomination: SOL or USDC pair.** Since May 2026 Pump.fun supports USDC-denominated launches. This changes which market-cap tiers govern the creator fee, so decide before launch, not after.
 - [ ] Prepare the launch post — apply [README §10 language discipline](README.md#10--language-discipline)
 
 **Exit condition:** brand, channels and disclaimers are live and consistent; artwork exists.

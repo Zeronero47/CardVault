@@ -409,10 +409,11 @@ code{font-family:var(--mono); font-size:.92em}
       +   '<span>'+eur(balance)+' in Vault</span>'
       +   '<span class="is-soft">'+pct.toFixed(1)+'% of target</span>'
       + '</div></div>'
-      + '<p class="target-note">At a '+Math.round((alloc.vault||0)*100)+'% Vault split of a '
-      +   ((cfg.creatorFeeRate||0)*100).toFixed(2)+'% creator fee, this card needs roughly <strong>'
-      +   volTxt+' in cumulative trading volume</strong>. It is a target, not a forecast, and it is '
-      +   'not what the deadline above commits to.</p>';
+      + '<p class="target-note">At a '+Math.round((alloc.vault||0)*100)+'% Vault split of the '
+      +   ((cfg.creatorFeeRate||0)*100).toFixed(2)+'% bonding-curve creator fee, this card needs at '
+      +   'least <strong>'+volTxt+' in cumulative trading volume</strong> — and more in practice, '
+      +   'because the creator fee scales down as market cap rises. It is a target, not a forecast, '
+      +   'and not what the deadline above commits to.</p>';
     }
 
     var rows = [

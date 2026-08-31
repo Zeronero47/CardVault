@@ -15,6 +15,7 @@
   "config": {
     "firstAcquisitionDeadline": "2026-10-30",
     "creatorFeeRate": 0.003,
+    "creatorFeeNote": "Bonding-curve rate (0.300%). After graduation the creator fee scales DOWN with market cap, from 0.300% to 0.050% for SOL-denominated coins. Non-canonical pools pay 0%. Any projection using this flat rate is an upper bound.",
     "allocation": { "vault": 0.7, "operations": 0.3 },
     "manifestSlots": 8
   },
@@ -26,7 +27,7 @@
       "ref": "OP01-078",
       "grade": "PSA 10",
       "estimateEur": 3500,
-      "note": "Verify set reference and current market estimate before launch."
+      "note": "Price checked and deliberately conservative. Set reference still to be confirmed against the physical card."
     }
   },
   "wallets": {
@@ -34,8 +35,8 @@
     "operations": null
   },
   "links": {
-    "x": null,
-    "telegram": null,
+    "x": "https://x.com/CardVaultSOL",
+    "telegram": "https://t.me/CardVaultSOL",
     "repo": "https://github.com/Zeronero47/CardVault"
   },
   "fees": [],

@@ -59,20 +59,37 @@ Split at platform level
 70% Vault  ·  30% Operations
 ```
 
-Pump.fun documents a **0.30% Creator Fee** on the standard bonding-curve model. Fee structures can change.
+### The creator fee is not a flat rate
 
-At a 70% Vault split, the Vault receives **0.21% of trading volume**.
+This is the single most misunderstood part of the model, so it is stated in full.
 
-| Trading Volume | Approx. Creator Fees* | To Vault (70%) |
-| -------------: | --------------------: | -------------: |
-|        $10,000 |                   $30 |            $21 |
-|       $100,000 |                  $300 |           $210 |
-|     $1,000,000 |                $3,000 |         $2,100 |
-|    $10,000,000 |               $30,000 |        $21,000 |
+| Phase | Creator fee | Total trade fee |
+|---|---:|---:|
+| Bonding curve (pre-graduation) | **0.300%** | 1.250% |
+| PumpSwap canonical pool, low market cap | **0.300%** | 1.250% |
+| PumpSwap canonical pool, high market cap | **0.050%** | 0.300% |
+| Non-canonical pool | **0%** | 0.300% |
 
-*Simplified theoretical calculation. Actual revenue differs.
+After graduation the creator fee scales **down** as market cap rises. For SOL-denominated coins it starts at 0.300% below 420 SOL of market cap and falls to 0.050% above 98,240 SOL. Protocol fee stays at 0.050% and LP at 0.200% across tiers.
 
-**Market cap ≠ revenue.** A $1M market cap does not mean $1M earned. The metric that matters is **trading volume**.
+**The model is regressive: the more successful the coin, the smaller the creator share.** Any projection assuming a flat 0.300% is a best case, not an expectation.
+
+### What the Vault receives
+
+At a 70% split of the **bonding-curve** rate, the Vault receives 0.21% of volume.
+
+| Trading Volume | Creator Fees @0.30% | To Vault (70%) |
+| -------------: | ------------------: | -------------: |
+|        €10,000 |                 €30 |            €21 |
+|       €100,000 |                €300 |           €210 |
+|     €1,000,000 |              €3,000 |         €2,100 |
+|    €10,000,000 |             €30,000 |        €21,000 |
+
+Treat this table as an upper bound. Real revenue at higher market caps is lower, and volume routed through non-canonical pools generates nothing at all.
+
+**Market cap ≠ revenue.** A €1M market cap does not mean €1M earned. The metric that matters is **trading volume**.
+
+Other platform mechanics: launching costs 0 SOL, the bonding curve completes at roughly 85 SOL and the coin then graduates to PumpSwap, and there is a 0.015 SOL graduation fee. Fewer than 2% of coins launched on the platform ever graduate.
 
 ---
 
@@ -118,7 +135,9 @@ Estimated €3,500
 
 This is the card that defines the season. It is a **destination, not a schedule**, and the deadline above does not commit to it.
 
-At a 70% Vault split of a 0.30% creator fee, €3,500 requires roughly **€1.67M in cumulative trading volume**. That number is published openly rather than hidden, because anyone can compute it and the project has nothing to gain from them being surprised by it.
+At a 70% Vault split of the 0.30% bonding-curve creator fee, €3,500 requires roughly **€1.67M in cumulative trading volume** — and that is the *floor*. Because the creator fee scales down with market cap (see §3), a coin that actually travels that far will be earning less than 0.30% for much of the journey. In the lowest fee tier the same €3,500 would need on the order of €10M in volume.
+
+The number is published openly rather than hidden. Anyone can compute it, and the project gains nothing from people being surprised by it later.
 
 Every card acquired before the grail is progress toward it, and content in its own right.
 
@@ -309,7 +328,7 @@ If the project dies immediately: **stop.** Do not launch additional tokens to ma
 **Liquidity** — low liquidity creates extreme price movements.
 **Regulatory** — token plus participation mechanics create obligations. MiCA Title II applies to the offer; Title VI prohibits market manipulation.
 **IP** — commercial use of existing anime/manga IP creates copyright and trademark exposure.
-**Platform** — Pump.fun fees, mechanics and policies can change.
+**Platform** — Pump.fun fees, mechanics and policies can change, and have changed repeatedly through 2026. Two specific exposures: the creator fee **falls** as market cap rises, so success reduces the funding rate; and volume routed through non-canonical pools pays no creator fee at all, generating nothing for the Vault.
 **Community** — the project can be dominated by speculators rather than collectors.
 **Reputation** — poor transparency or aggressive marketing destroys trust permanently.
 
