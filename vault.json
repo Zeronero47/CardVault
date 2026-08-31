@@ -14,8 +14,9 @@
   },
   "config": {
     "firstAcquisitionDeadline": "2026-10-30",
+    "denomination": "SOL",
     "creatorFeeRate": 0.003,
-    "creatorFeeNote": "Bonding-curve rate (0.300%). After graduation the creator fee scales DOWN with market cap, from 0.300% to 0.050% for SOL-denominated coins. Non-canonical pools pay 0%. Any projection using this flat rate is an upper bound.",
+    "creatorFeeNote": "Bonding-curve rate (0.300%). After graduation the creator fee scales DOWN with market cap, from 0.300% (below 420 SOL) to 0.050% (above 98,240 SOL). Non-canonical pools pay 0%. Any projection using this flat rate is an upper bound.",
     "allocation": { "vault": 0.7, "operations": 0.3 },
     "manifestSlots": 8
   },
@@ -24,10 +25,10 @@
     "category": "One Piece Card Game",
     "target": {
       "item": "Boa Hancock — Manga Rare",
-      "ref": "OP01-078",
+      "ref": "OP07-051",
       "grade": "PSA 10",
       "estimateEur": 3500,
-      "note": "Price checked and deliberately conservative. Set reference still to be confirmed against the physical card."
+      "note": "Set reference and price both confirmed. Estimate is deliberately conservative."
     }
   },
   "wallets": {

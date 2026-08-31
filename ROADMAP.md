@@ -30,6 +30,15 @@ Nothing here costs money. Do not launch the token until all of it is done.
 - [x] Telegram description and pinned message set
 - [x] Trademark sanity check done — **decision: keep the name, do not pursue registration**
 - [x] Original brand assets created — see [brand/](brand/)
+- [x] First-acquisition deadline set: **2026-10-30**
+- [x] Fee split set: **70 Vault / 30 Operations**
+- [x] Season 1 category set: **One Piece Card Game**
+- [x] Season 1 target set: **Boa Hancock — Manga Rare, PSA 10, ~€3,500**
+- [x] Price estimate confirmed at €3,500 — checked, with deliberate headroom
+- [x] Pump.fun fee model verified against official documentation (see README §3)
+- [x] Set reference confirmed: **OP07-051**
+- [x] Denomination decided: **SOL** — native Pump.fun convention, deepest routing, and volume is the only thing that funds the Vault
+- [ ] Prepare the launch post — apply [README §10 language discipline](README.md#10--language-discipline)
 
 ### Naming finding
 
@@ -59,15 +68,7 @@ from crypto plus trading cards. But Card Vault will compete against projects
 that are willing to promise redemption and backing, which it will not.
 Verifiability is the differentiator, and it has to be executed well enough
 to be worth more than a promise.
-- [x] First-acquisition deadline set: **2026-10-30**
-- [x] Fee split set: **70 Vault / 30 Operations**
-- [x] Season 1 category set: **One Piece Card Game**
-- [x] Season 1 target set: **Boa Hancock — Manga Rare, PSA 10, ~€3,500**
-- [x] Price estimate confirmed at €3,500 — checked, with deliberate headroom
-- [x] Pump.fun fee model verified against official documentation (see README §3)
-- [ ] Confirm the set reference (`OP01-078`) against the physical card
-- [ ] **Decide denomination: SOL or USDC pair.** Since May 2026 Pump.fun supports USDC-denominated launches. This changes which market-cap tiers govern the creator fee, so decide before launch, not after.
-- [ ] Prepare the launch post — apply [README §10 language discipline](README.md#10--language-discipline)
+
 
 **Exit condition:** brand, channels and disclaimers are live and consistent; artwork exists.
 
@@ -139,7 +140,7 @@ Not before. Each item requires professional review.
 
 ---
 
-## Decisions still open
+## Decisions
 
 | # | Decision | Status |
 |---|---|---|
@@ -147,10 +148,11 @@ Not before. Each item requires professional review.
 | 2 | Fee split Vault / Operations | ✅ 70 / 30 |
 | 3 | Season 1 category | ✅ One Piece Card Game |
 | 4 | Season 1 target | ✅ Boa Hancock Manga Rare, PSA 10, ~€3,500 |
-| 5 | Set reference + price estimate | ⬜ Verify `OP01-078` and refresh the estimate |
-| 6 | Logo and art direction | ⬜ Deferred |
+| 5 | Set reference + price estimate | ✅ `OP07-051`, ~€3,500 |
+| 5b | Pair denomination | ✅ SOL |
+| 6 | Brand assets | ✅ Built — see [brand/](brand/) |
 | 7 | Custody arrangement | ⬜ Deferred to Phase 5 |
-| 8 | Handles and trademark check | ⬜ Open |
+| 8 | Handles + trademark | ✅ @CardVaultSOL secured; name kept, no registration |
 
 ---
 

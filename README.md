@@ -129,7 +129,7 @@ On that date the first card is bought **with whatever the Vault holds**, and the
 ### 5.2 The Season 1 target — the grail
 
 ```text
-Boa Hancock — Manga Rare (OP01-078), PSA 10
+Boa Hancock — Manga Rare (OP07-051), PSA 10
 Estimated €3,500
 ```
 
