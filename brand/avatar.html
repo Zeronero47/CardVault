@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{width:1000px;height:1000px;overflow:hidden}
+  .frame{
+    position:relative; width:1000px; height:1000px; background:#E9E7E2;
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+  }
+  .tone{
+    position:absolute; inset:0;
+    background-image:radial-gradient(rgba(10,10,10,.34) 2.4px, transparent 2.8px);
+    background-size:17px 17px;
+    -webkit-mask-image:radial-gradient(circle at 50% 40%, #000 26%, transparent 76%);
+  }
+  .mark{
+    position:relative; font-family:"Archivo Black",Impact,sans-serif;
+    font-size:400px; line-height:.78; color:#0A0A0A; letter-spacing:-.03em;
+  }
+  .rule{position:relative; width:236px; height:22px; background:#C41E1E; margin-top:46px}
+</style></head>
+<body>
+  <div class="frame">
+    <div class="tone"></div>
+    <div class="mark">CV</div>
+    <div class="rule"></div>
+  </div>
+</body></html>
