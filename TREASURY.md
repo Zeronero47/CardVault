@@ -25,7 +25,9 @@ Creator Fees
 
 Why this matters: the split is enforced by the platform, not by our word. There is no moment where Vault funds pass through a personal wallet and require anyone to trust that a transfer happened.
 
-**Honest limitation:** percentages are reassignable by the creator after launch. This is transparent, not immutable. The configuration lives in this repository, so any change to it is a public diff.
+**The split is locked.** Pump.fun states that rewards sharing *cannot be changed again* once saved, and it was saved on 2026-09-01 at 70 / 30. Nobody can redirect it — the operator included. This is stronger than a policy: the 70% cannot be quietly reduced later, because there is no mechanism to reduce it.
+
+The consequence runs both ways. The Vault address is now a permanent fee destination, so losing that key would strand 70% of all future creator fees at an address nobody can reach. Backing up that seed is the single most critical operational task in this project. It also means a future migration to a multisig cannot re-route the fees: funds would have to be forwarded manually from this address, and that forwarding would be published like any other movement.
 
 > ✅ Verified against Pump.fun documentation. The creator fee is 0.300% on the bonding curve but scales **down** to 0.050% as market cap rises, and non-canonical pools pay nothing — see [README §3](README.md#3--revenue-model). Platform policies change; re-check before relying on any projection.
 

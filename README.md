@@ -41,6 +41,19 @@ Most meme coins have nothing to say after the first week. This one has a recurri
 
 Supply follows the standard Pump.fun model (approximately 1,000,000,000 tokens). Price is determined by the bonding curve, not set manually.
 
+**Contract:** `EBfLiCjv6jbbk4pESF3bwGMe8WkMb9NVv8WjAerJpump`
+
+### Creator holding
+
+The creator holds **348,899 $VAULT — 0.035% of supply** — bought for $1 at
+launch. Pump.fun keeps a new coin offchain until someone makes the first
+purchase, which is what deploys the mint and establishes the trading pair, so
+this buy was the only way to bring the coin on-chain.
+
+It will never be sold. The wallet is published in `vault.json` alongside the
+treasury addresses, because a holding that has to be discovered is worth less
+than one that is declared.
+
 ---
 
 # 3. 💰 Revenue Model

@@ -9,15 +9,18 @@
     "ticker": "VAULT",
     "chain": "Solana",
     "platform": "Pump.fun",
-    "contract": null,
-    "launchedAt": null
+    "contract": "EBfLiCjv6jbbk4pESF3bwGMe8WkMb9NVv8WjAerJpump",
+    "launchedAt": "2026-09-01"
   },
   "config": {
     "firstAcquisitionDeadline": "2026-10-30",
     "denomination": "SOL",
     "creatorFeeRate": 0.003,
     "creatorFeeNote": "Bonding-curve rate (0.300%). After graduation the creator fee scales DOWN with market cap, from 0.300% (below 420 SOL) to 0.050% (above 98,240 SOL). Non-canonical pools pay 0%. Any projection using this flat rate is an upper bound.",
-    "allocation": { "vault": 0.7, "operations": 0.3 },
+    "allocation": {
+      "vault": 0.7,
+      "operations": 0.3
+    },
     "manifestSlots": 8
   },
   "season": {
@@ -34,6 +37,8 @@
   "wallets": {
     "vault": "9Z13RZfSxKrmNcrnzTdhM19TcYfdNjM8Uj9stdFR83Ep",
     "operations": "GT1GViiJ3FeFYzsqHpt19gLqPi5D9AXNjfMqzuoykeZr",
+    "creatorBootstrap": "F8bdPkKLL7cVsEDZJrfmX3G1DvvZ4R8g6vvZWuCDDU3u",
+    "creatorBootstrapNote": "Pump.fun requires a first purchase to deploy a coin on-chain. The creator bought $1 of $VAULT from this wallet for that purpose only: 348,899 tokens, 0.035% of supply. It will never be sold. Disclosed here rather than left to be discovered.",
     "custodyNote": "Single-signature wallet. Auditable by anyone on-chain, but not multisig-secured. Migration to a Squads multisig is planned once the Vault holds enough to justify the ~0.1 SOL deployment cost, and will be published with its transaction trail."
   },
   "links": {

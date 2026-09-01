@@ -18,7 +18,7 @@ improvise replacements on the day.
 | X | `https://x.com/CardVaultSOL` |
 | Telegram | `https://t.me/CardVaultSOL` |
 | Denomination | **SOL** |
-| Dev buy | **0** — see below |
+| Dev buy | **$1 bootstrap** — see below |
 
 ### Description
 
@@ -32,19 +32,24 @@ Nobody receives a card. The Vault only grows.
 Holding $VAULT is not a claim on anything.
 ```
 
-### Dev buy: zero, and say so
+### Dev buy: $1, disclosed
 
-Pump.fun allows the creator to buy supply at creation. The recommendation is
-to buy nothing.
+The plan was to buy nothing. Pump.fun makes that impossible: a coin created
+on the platform stays **offchain** until someone makes the first purchase,
+which is what establishes the trading pair and deploys the mint.
 
-*"The creator holds no $VAULT"* removes the single most common accusation
-against a memecoin in one sentence, and it is consistent with a project whose
-whole premise is that nobody takes anything out — the operator included.
+So the creator bought $1 to deploy it, and nothing since.
 
-The cost is having no aligned exposure. But a position you might one day sell
-is a liability for this specific project: selling it would end the project's
-credibility instantly, and holding it forever adds something to explain for no
-benefit.
+```
+Wallet   F8bdPkKLL7cVsEDZJrfmX3G1DvvZ4R8g6vvZWuCDDU3u
+Holds    348,899 $VAULT — 0.035% of supply
+Reason   Required to bring the coin on-chain
+Status   Will never be sold
+```
+
+Disclosing this up front costs nothing. Having it discovered on Solscan later
+would cost everything, on a project whose only real asset is that its claims
+check out.
 
 ---
 
@@ -77,6 +82,8 @@ Creator fees buy graded trading cards. 70% of every fee goes to the Vault wallet
 
 Holding $VAULT gives you no card, no share, no claim, and no promise about price. The cards do not back the token.
 
+The creator holds 0.035%, bought for $1 because Pump.fun needs a first purchase to deploy a coin. It will never be sold.
+
 First card bought by 30 October 2026, with whatever the Vault holds.
 
 https://cardvault.art
@@ -91,8 +98,10 @@ the real address.
 ## Published addresses
 
 ```
-Vault        9Z13RZfSxKrmNcrnzTdhM19TcYfdNjM8Uj9stdFR83Ep
-Operations   GT1GViiJ3FeFYzsqHpt19gLqPi5D9AXNjfMqzuoykeZr
+Contract     EBfLiCjv6jbbk4pESF3bwGMe8WkMb9NVv8WjAerJpump
+Vault        9Z13RZfSxKrmNcrnzTdhM19TcYfdNjM8Uj9stdFR83Ep   70% of fees
+Operations   GT1GViiJ3FeFYzsqHpt19gLqPi5D9AXNjfMqzuoykeZr   30% of fees
+Creator      F8bdPkKLL7cVsEDZJrfmX3G1DvvZ4R8g6vvZWuCDDU3u   0.035%, never sold
 ```
 
 The signer key is not published. It is not a treasury wallet.
