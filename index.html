@@ -327,7 +327,7 @@ code{font-family:var(--mono); font-size:.92em}
   var $ = function(id){ return document.getElementById(id); };
   var esc = function(s){ return String(s == null ? "" : s).replace(/[&<>"']/g, function(c){
     return {"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c]; }); };
-  var eur = function(n){ return "€" + (n||0).toLocaleString("en-GB",{minimumFractionDigits:2,maximumFractionDigits:2}); };
+  var usd = function(n){ return "$" + (n||0).toLocaleString("en-US",{minimumFractionDigits:2,maximumFractionDigits:2}); };
   var pad = function(n){ return String(n).padStart(2,"0"); };
   var short = function(a){ return a ? a.slice(0,6)+"…"+a.slice(-6) : null; };
 
@@ -380,33 +380,33 @@ code{font-family:var(--mono); font-size:.92em}
     }
     $("slots").innerHTML = html;
 
-    var inflow = fees.reduce(function(t,f){ return t+(f.eur||0); },0);
-    var spent  = acq.reduce(function(t,a){ return t+(a.priceEur||0); },0);
+    var inflow = fees.reduce(function(t,f){ return t+(f.usd||0); },0);
+    var spent  = acq.reduce(function(t,a){ return t+(a.priceUsd||0); },0);
     var alloc  = cfg.allocation||{};
     var balance = inflow - spent;
 
     // season target
     var se = v.season, tg = se && se.target;
-    if(tg && tg.estimateEur){
-      var pct = Math.max(0, Math.min(100, balance / tg.estimateEur * 100));
+    if(tg && tg.estimateUsd){
+      var pct = Math.max(0, Math.min(100, balance / tg.estimateUsd * 100));
       var rate = (cfg.creatorFeeRate||0) * (alloc.vault||0);
       var volTxt = "";
       if(rate > 0){
-        var vol = tg.estimateEur / rate;
-        volTxt = vol >= 1e6 ? "€" + (vol/1e6).toFixed(2) + "M"
-                            : "€" + Math.round(vol/1000) + "K";
+        var vol = tg.estimateUsd / rate;
+        volTxt = vol >= 1e6 ? "$" + (vol/1e6).toFixed(2) + "M"
+                            : "$" + Math.round(vol/1000) + "K";
       }
       var meta = [tg.ref, tg.grade, se.category].filter(Boolean).map(esc).join("  ·  ");
       $("target").innerHTML =
         '<div class="target-head">'
       +   '<div><h3 class="target-name">'+esc(tg.item)+'</h3><p class="target-meta">'+meta+'</p></div>'
-      +   '<div class="target-price">'+eur(tg.estimateEur)+'</div>'
+      +   '<div class="target-price">'+usd(tg.estimateUsd)+'</div>'
       + '</div>'
       + '<div class="target-bar-wrap"><div class="target-bar">'
       +   '<div class="target-fill" style="width:'+pct.toFixed(2)+'%"></div>'
       +   '<div class="target-empty"></div>'
       + '</div><div class="target-nums">'
-      +   '<span>'+eur(balance)+' in Vault</span>'
+      +   '<span>'+usd(balance)+' in Vault</span>'
       +   '<span class="is-soft">'+pct.toFixed(1)+'% of target</span>'
       + '</div></div>'
       + '<p class="target-note">At a '+Math.round((alloc.vault||0)*100)+'% Vault split of the '
@@ -417,9 +417,9 @@ code{font-family:var(--mono); font-size:.92em}
     }
 
     var rows = [
-      ["Vault balance", eur(inflow-spent), "is-big"],
-      ["Fees routed to Vault", eur(inflow)+"  ("+fees.length+" claims)", ""],
-      ["Spent on acquisitions", eur(spent), ""],
+      ["Vault balance", usd(inflow-spent), "is-big"],
+      ["Fees routed to Vault", usd(inflow)+"  ("+fees.length+" claims)", ""],
+      ["Spent on acquisitions", usd(spent), ""],
       ["Cards held", String(acq.length), ""],
       ["Fee split", "Vault "+Math.round((alloc.vault||0)*100)+"% / Ops "+Math.round((alloc.operations||0)*100)+"%", ""],
       ["Contract", esc(tok.contract) || "Not launched yet", tok.contract?"":"is-muted"],

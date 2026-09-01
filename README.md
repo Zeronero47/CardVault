@@ -80,14 +80,14 @@ At a 70% split of the **bonding-curve** rate, the Vault receives 0.21% of volume
 
 | Trading Volume | Creator Fees @0.30% | To Vault (70%) |
 | -------------: | ------------------: | -------------: |
-|        €10,000 |                 €30 |            €21 |
-|       €100,000 |                €300 |           €210 |
-|     €1,000,000 |              €3,000 |         €2,100 |
-|    €10,000,000 |             €30,000 |        €21,000 |
+|        $10,000 |                 $30 |            $21 |
+|       $100,000 |                $300 |           $210 |
+|     $1,000,000 |              $3,000 |         $2,100 |
+|    $10,000,000 |             $30,000 |        $21,000 |
 
 Treat this table as an upper bound. Real revenue at higher market caps is lower, and volume routed through non-canonical pools generates nothing at all.
 
-**Market cap ≠ revenue.** A €1M market cap does not mean €1M earned. The metric that matters is **trading volume**.
+**Market cap ≠ revenue.** A $1M market cap does not mean $1M earned. The metric that matters is **trading volume**.
 
 Other platform mechanics: launching costs 0 SOL, the bonding curve completes at roughly 85 SOL and the coin then graduates to PumpSwap, and there is a 0.015 SOL graduation fee. Fewer than 2% of coins launched on the platform ever graduate.
 
@@ -122,7 +122,7 @@ Most projects promise "we will buy when we have enough", and that date never arr
 FIRST ACQUISITION COMMITTED BY: 2026-10-30
 ```
 
-On that date the first card is bought **with whatever the Vault holds**, and the purchase is documented. If that is €40, the Vault acquires a €40 graded card and says exactly that.
+On that date the first card is bought **with whatever the Vault holds**, and the purchase is documented. If that is $40, the Vault acquires a $40 graded card and says exactly that.
 
 **If the Vault is empty on that date, the site will say so.** A deadline you can fail publicly is worth more than a target you can postpone privately.
 
@@ -130,12 +130,12 @@ On that date the first card is bought **with whatever the Vault holds**, and the
 
 ```text
 Boa Hancock — Manga Rare (OP07-051), PSA 10
-Estimated €3,500
+Estimated $4,000
 ```
 
 This is the card that defines the season. It is a **destination, not a schedule**, and the deadline above does not commit to it.
 
-At a 70% Vault split of the 0.30% bonding-curve creator fee, €3,500 requires roughly **€1.67M in cumulative trading volume** — and that is the *floor*. Because the creator fee scales down with market cap (see §3), a coin that actually travels that far will be earning less than 0.30% for much of the journey. In the lowest fee tier the same €3,500 would need on the order of €10M in volume.
+At a 70% Vault split of the 0.30% bonding-curve creator fee, $4,000 requires roughly **$1.9M in cumulative trading volume** — and that is the *floor*. Because the creator fee scales down with market cap (see §3), a coin that actually travels that far will be earning less than 0.30% for much of the journey. In the lowest fee tier the same $4,000 would need on the order of $11.4M in volume.
 
 The number is published openly rather than hidden. Anyone can compute it, and the project gains nothing from people being surprised by it later.
 
@@ -151,7 +151,7 @@ Every acquisition is published with:
 * Grading company and **certificate number**
 * Purchase price and date
 * Outgoing transaction hash
-* SOL/EUR rate at the time
+* SOL/USD rate at the time
 
 The certificate number is the important one: anyone can verify it in the public database of the grading company. A receipt screenshot can be faked in two minutes; a certificate number cannot.
 
@@ -167,7 +167,7 @@ This is a deliberate design decision, not an omission.
 
 A mechanism where buying a token grants entry into a prize draw combines **consideration** (the purchase), **chance** (the draw) and **a prize of value**. Under Italian law that combination is a lottery, and lotteries are a state reserve — not a filing problem, a prohibition.
 
-The regulated alternative (*concorso a premi*, DPR 430/2001) requires being a registered business, filing with MIMIT before the start, posting a bond equal to 100% of the prize value, and having a notary or Chamber of Commerce officer supervise the draw. That is incompatible with a project starting at €0.
+The regulated alternative (*concorso a premi*, DPR 430/2001) requires being a registered business, filing with MIMIT before the start, posting a bond equal to 100% of the prize value, and having a notary or Chamber of Commerce officer supervise the draw. That is incompatible with a project starting at $0.
 
 Possible future direction, only if the project generates real revenue:
 
@@ -212,13 +212,13 @@ The line between describing and promising is the line between legal and not. Thi
 
 **Permitted — statements of fact and conduct:**
 
-* "The Vault holds 7 cards, acquisition cost €4,200, certificates verifiable here."
+* "The Vault holds 7 cards, acquisition cost $4,200, certificates verifiable here."
 * "Cards in the Vault are never sold."
 
 **Forbidden — statements of backing or claim:**
 
 * "$VAULT is backed by real assets"
-* "Each token represents €X of collectibles"
+* "Each token represents $X of collectibles"
 * "The Vault supports the floor price"
 * "Redeemable" — in any construction
 
@@ -291,7 +291,7 @@ Premium collectible archive, not a generic crypto token.
 1 Collectible category
 ```
 
-Target budget: **€0–€20**. Validate demand before spending money.
+Target budget: **$0–$20**. Validate demand before spending money.
 
 ---
 
@@ -362,7 +362,7 @@ If the answer is no, the project stops.
 Not "make $1 million."
 
 ```text
-€0 → Launch → Real users → Real volume → Creator Fees → First card → Community
+$0 → Launch → Real users → Real volume → Creator Fees → First card → Community
 ```
 
 If this loop works once, we find out whether it can work again.

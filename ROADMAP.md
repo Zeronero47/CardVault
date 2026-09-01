@@ -33,8 +33,8 @@ Nothing here costs money. Do not launch the token until all of it is done.
 - [x] First-acquisition deadline set: **2026-10-30**
 - [x] Fee split set: **70 Vault / 30 Operations**
 - [x] Season 1 category set: **One Piece Card Game**
-- [x] Season 1 target set: **Boa Hancock — Manga Rare, PSA 10, ~€3,500**
-- [x] Price estimate confirmed at €3,500 — checked, with deliberate headroom
+- [x] Season 1 target set: **Boa Hancock — Manga Rare, PSA 10, ~$4,000**
+- [x] Price estimate confirmed at $4,000 — checked, with deliberate headroom
 - [x] Pump.fun fee model verified against official documentation (see README §3)
 - [x] Set reference confirmed: **OP07-051**
 - [x] Denomination decided: **SOL** — native Pump.fun convention, deepest routing, and volume is the only thing that funds the Vault
@@ -148,7 +148,7 @@ final URL instead of one that redirects.
 - [ ] Shortlist One Piece Card Game cards within the **actual** budget, not the target budget
 - [ ] Community vote on the shortlist
 - [ ] Purchase — prefer an already-graded card so the certificate is immediately verifiable
-- [ ] Record in `vault.json`: transaction hash, SOL, EUR rate, price, grader, certificate number, receipt
+- [ ] Record in `vault.json`: transaction hash, SOL, USD rate, price, grader, certificate number, receipt
 - [ ] Commit and push — slot `#001` fills automatically
 - [ ] Publish the reveal: unboxing, certificate lookup, full cost breakdown
 
@@ -187,11 +187,11 @@ Not before. Each item requires professional review.
 | 1 | First-acquisition deadline | ✅ `2026-10-30` (60 days) |
 | 2 | Fee split Vault / Operations | ✅ 70 / 30 |
 | 3 | Season 1 category | ✅ One Piece Card Game |
-| 4 | Season 1 target | ✅ Boa Hancock Manga Rare, PSA 10, ~€3,500 |
-| 5 | Set reference + price estimate | ✅ `OP07-051`, ~€3,500 |
+| 4 | Season 1 target | ✅ Boa Hancock Manga Rare, PSA 10, ~$4,000 |
+| 5 | Set reference + price estimate | ✅ `OP07-051`, ~$4,000 |
 | 5b | Pair denomination | ✅ SOL |
 | 6 | Brand assets | ✅ Built — see [brand/](brand/) |
-| 7 | Custody arrangement | ✅ Single-sig now; Squads once Vault >€200–300 **and** a real second signer exists |
+| 7 | Custody arrangement | ✅ Single-sig now; Squads once Vault >$200–300 **and** a real second signer exists |
 | 8 | Handles + trademark | ✅ @CardVaultSOL secured; name kept, no registration |
 
 ---
