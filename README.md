@@ -146,12 +146,12 @@ Every card acquired before the grail is progress toward it, and content in its o
 Every acquisition is published with:
 
 * Card name, set, condition
-* Grading company and **certificate number**
+* **PSA certificate number** — Season 1 commits to PSA-graded cards only
 * Purchase price and date
 * Outgoing transaction hash
 * SOL/USD rate at the time
 
-The certificate number is the important one: anyone can verify it in the public database of the grading company. A receipt screenshot can be faked in two minutes; a certificate number cannot.
+The certificate number is the important one: anyone can verify it in PSA’s public database. A receipt screenshot can be faked in two minutes; a certificate number cannot.
 
 **The rule:** no number appears on the site that is not derived from a public address or a public certificate number. See [TREASURY.md](TREASURY.md).
 

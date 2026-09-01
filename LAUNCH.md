@@ -23,7 +23,13 @@ improvise replacements on the day.
 ### Description
 
 ```
-Creator fees buy graded trading cards. Every purchase published with its transaction hash and grading certificate — verify it yourself. Nobody receives a card. The Vault only grows. Holding $VAULT is not a claim on anything.
+Card Vault: creator fees buy real graded trading cards.
+
+Every purchase published with its transaction hash and PSA certificate number. Verify it yourself.
+
+Nobody receives a card. The Vault only grows.
+
+Holding $VAULT is not a claim on anything.
 ```
 
 ### Dev buy: zero, and say so
