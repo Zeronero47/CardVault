@@ -389,13 +389,6 @@ code{font-family:var(--mono); font-size:.92em}
     var se = v.season, tg = se && se.target;
     if(tg && tg.estimateUsd){
       var pct = Math.max(0, Math.min(100, balance / tg.estimateUsd * 100));
-      var rate = (cfg.creatorFeeRate||0) * (alloc.vault||0);
-      var volTxt = "";
-      if(rate > 0){
-        var vol = tg.estimateUsd / rate;
-        volTxt = vol >= 1e6 ? "$" + (vol/1e6).toFixed(2) + "M"
-                            : "$" + Math.round(vol/1000) + "K";
-      }
       var meta = [tg.ref, tg.grade, se.category].filter(Boolean).map(esc).join("  ·  ");
       $("target").innerHTML =
         '<div class="target-head">'
@@ -409,11 +402,9 @@ code{font-family:var(--mono); font-size:.92em}
       +   '<span>'+usd(balance)+' in Vault</span>'
       +   '<span class="is-soft">'+pct.toFixed(1)+'% of target</span>'
       + '</div></div>'
-      + '<p class="target-note">At a '+Math.round((alloc.vault||0)*100)+'% Vault split of the '
-      +   ((cfg.creatorFeeRate||0)*100).toFixed(2)+'% bonding-curve creator fee, this card needs at '
-      +   'least <strong>'+volTxt+' in cumulative trading volume</strong> — and more in practice, '
-      +   'because the creator fee scales down as market cap rises. It is a target, not a forecast, '
-      +   'and not what the deadline above commits to.</p>';
+      + '<p class="target-note">The card that defines Season 1. It is a <strong>destination, not '
+      +   'a schedule</strong> — the deadline above commits to a card, not to this one. Every '
+      +   'acquisition before it is progress toward it.</p>';
     }
 
     var rows = [
