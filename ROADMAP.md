@@ -11,9 +11,9 @@ Executable steps in order. Each phase has an exit condition — do not start the
 - [x] Treasury architecture documented ([TREASURY.md](TREASURY.md))
 - [x] `vault.json` schema and empty initial state
 - [x] Static site (`index.html`) reading `vault.json`, no hardcoded figures
-- [ ] **Enable GitHub Pages** — Settings → Pages → Source: `main`, folder `/ (root)`
-- [ ] **Push to `main`**
-- [ ] Verify live at `https://zeronero47.github.io/CardVault/`
+- [x] GitHub Pages enabled — `main` / root
+- [x] Pushed to `main`
+- [x] Verified live
 
 **Exit condition:** the site is publicly reachable and shows the empty Vault honestly.
 
@@ -79,14 +79,15 @@ to be worth more than a promise.
 Order matters. Adding the `CNAME` file makes GitHub redirect `zeronero47.github.io`
 to the custom domain, so doing it before DNS resolves takes the site **offline**.
 
-- [ ] Push the site and enable Pages — verify it works at `zeronero47.github.io/CardVault`
-- [ ] Domain acquired
-- [ ] Set DNS at the registrar (see below), then wait for propagation
-- [ ] Confirm propagation: `nslookup cardvault.art` returns the GitHub IPs
-- [ ] **Only then**: add a file named `CNAME` (no extension) in the repo root containing exactly `cardvault.art`
-- [ ] GitHub → Settings → Pages → Custom domain → `cardvault.art`
-- [ ] Wait for the certificate, then tick **Enforce HTTPS**
-- [ ] Update the URL in `vault.json` links, README §12, X bio, X pinned post, Telegram description and pinned message
+- [x] Site pushed and Pages enabled
+- [x] Domain acquired
+- [x] DNS set at the registrar
+- [x] Propagation confirmed — resolves to the four GitHub IPs
+- [x] `CNAME` committed automatically by GitHub when the domain was saved
+- [x] Custom domain set — site serves at https://cardvault.art
+- [ ] **Tick Enforce HTTPS** — certificate is approved, but plain HTTP still returns 200
+- [x] README and LAUNCH updated to the new domain
+- [ ] Update the URL on X bio, X pinned post, Telegram description and Telegram pinned message
 
 ### DNS records
 

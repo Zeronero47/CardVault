@@ -14,7 +14,7 @@ improvise replacements on the day.
 | Name | `Card Vault` |
 | Ticker | `VAULT` |
 | Image | `brand/avatar.png` |
-| Website | `https://cardvault.art` *(use the github.io URL if the domain is not live yet)* |
+| Website | `https://cardvault.art` |
 | X | `https://x.com/CardVaultSOL` |
 | Telegram | `https://t.me/CardVaultSOL` |
 | Denomination | **SOL** |

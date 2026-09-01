@@ -135,9 +135,7 @@ Estimated $4,000
 
 This is the card that defines the season. It is a **destination, not a schedule**, and the deadline above does not commit to it.
 
-At a 70% Vault split of the 0.30% bonding-curve creator fee, $4,000 requires roughly **$1.9M in cumulative trading volume** — and that is the *floor*. Because the creator fee scales down with market cap (see §3), a coin that actually travels that far will be earning less than 0.30% for much of the journey. In the lowest fee tier the same $4,000 would need on the order of $11.4M in volume.
-
-The number is published openly rather than hidden. Anyone can compute it, and the project gains nothing from people being surprised by it later.
+The revenue needed to reach it depends on the fee tier the coin is trading in, which moves with market cap — see §3. No projection is published here, because any figure would be derived from an estimate and would read as a forecast the project does not make.
 
 Every card acquired before the grail is progress toward it, and content in its own right.
 
@@ -262,7 +260,7 @@ The hypothesis: **collectibles generate content, content generates attention, at
 
 Static site on GitHub Pages. `index.html` reads `vault.json` and derives every figure from it. Nothing is hardcoded.
 
-Live at: `https://zeronero47.github.io/CardVault/`
+Live at **[cardvault.art](https://cardvault.art)**
 
 ---
 
