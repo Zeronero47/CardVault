@@ -217,6 +217,8 @@ code{font-family:var(--mono); font-size:.92em}
   <div class="wrap masthead-in">
     <div class="masthead-mark">CARD VAULT</div>
     <div class="masthead-meta">
+      <a href="./docs.html" style="text-decoration:none">DOCS</a>
+      <span class="sep">/</span>
       <span id="m-ticker">$VAULT</span>
       <span class="sep hide-sm">/</span>
       <span class="hide-sm">SOLANA</span>
@@ -424,7 +426,7 @@ code{font-family:var(--mono); font-size:.92em}
     }).join("");
 
     var L = v.links||{};
-    var defs = [["X",L.x],["Telegram",L.telegram],["TikTok",L.tiktok],
+    var defs = [["Docs","./docs.html"],["X",L.x],["Telegram",L.telegram],["TikTok",L.tiktok],
                 ["Instagram",L.instagram],["Source",L.repo],["vault.json","./vault.json"]];
     $("links").innerHTML = defs.filter(function(d){ return d[1] || d[0]==="Instagram"; })
       .map(function(d){

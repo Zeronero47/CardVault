@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Card Vault — Documentation</title>
+<meta name="description" content="How Card Vault works, where the money goes, and how to verify every claim on this site without trusting us.">
+<meta property="og:title" content="Card Vault — Documentation">
+<meta property="og:description" content="How it works, and how to check it yourself.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#E9E7E2; --paper-deep:#DFDCD5; --ink:#0A0A0A; --ink-soft:#55524C;
+  --rule:#C5C1B8; --seal:#C41E1E; --dot:rgba(10,10,10,.55);
+  --display:"Archivo Black",Impact,"Haettenschweiler",sans-serif;
+  --body:"Archivo",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){
+  :root{ --paper:#101010; --paper-deep:#181817; --ink:#EDEAE3; --ink-soft:#9A968D;
+         --rule:#332F2B; --seal:#E4443F; --dot:rgba(237,234,227,.42); }
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%; scroll-behavior:smooth}
+body{margin:0; background:var(--paper); color:var(--ink);
+  font-family:var(--body); font-size:16px; line-height:1.6; -webkit-font-smoothing:antialiased}
+a{color:inherit}
+.wrap{width:100%; max-width:1180px; margin:0 auto; padding:0 24px}
+
+/* masthead */
+.masthead{position:sticky; top:0; z-index:60; background:var(--paper); border-bottom:1px solid var(--rule)}
+.masthead-in{display:flex; align-items:center; justify-content:space-between; gap:16px; height:52px;
+  font-family:var(--mono); font-size:11px; letter-spacing:.14em; text-transform:uppercase}
+.masthead-mark{font-family:var(--display); font-size:15px; letter-spacing:.02em; text-decoration:none}
+.masthead-meta{color:var(--ink-soft); display:flex; gap:18px; align-items:center}
+.masthead-meta a{text-decoration:none}
+.masthead-meta a:hover{color:var(--ink)}
+@media (max-width:640px){ .masthead-meta .hide-sm{display:none} }
+
+/* hero */
+.head{position:relative; overflow:hidden; border-bottom:1px solid var(--rule)}
+.head-tone{position:absolute; inset:0; pointer-events:none;
+  background-image:radial-gradient(var(--dot) 1.05px,transparent 1.25px); background-size:6px 6px;
+  -webkit-mask-image:linear-gradient(160deg,#000 0%,transparent 62%);
+  mask-image:linear-gradient(160deg,#000 0%,transparent 62%); opacity:.5}
+.head-in{position:relative; padding:64px 0 52px}
+.kicker{font-family:var(--mono); font-size:11px; letter-spacing:.2em; text-transform:uppercase;
+  color:var(--ink-soft); margin:0 0 18px}
+.head-title{font-family:var(--display); font-size:clamp(42px,8vw,84px); line-height:.9;
+  letter-spacing:-.025em; margin:0 0 20px; text-transform:uppercase}
+.head-lede{font-size:clamp(17px,2vw,21px); line-height:1.45; max-width:60ch; margin:0; color:var(--ink-soft)}
+
+/* layout */
+.cols{display:grid; grid-template-columns:230px 1fr; gap:56px; padding:56px 0 80px}
+@media (max-width:900px){ .cols{grid-template-columns:1fr; gap:0; padding-top:36px} }
+
+.toc{position:sticky; top:78px; align-self:start; font-family:var(--mono); font-size:11.5px;
+  letter-spacing:.06em; line-height:1.9}
+.toc-h{text-transform:uppercase; letter-spacing:.18em; color:var(--ink-soft); margin:0 0 14px;
+  padding-bottom:10px; border-bottom:1px solid var(--rule)}
+.toc a{display:block; text-decoration:none; color:var(--ink-soft); padding:1px 0}
+.toc a:hover{color:var(--ink)}
+@media (max-width:900px){
+  .toc{position:static; margin:0 0 44px; padding:20px; border:1px solid var(--rule); background:var(--paper-deep)}
+}
+
+.doc h2{font-family:var(--display); font-size:clamp(24px,3.4vw,34px); line-height:1.05;
+  letter-spacing:-.015em; text-transform:uppercase; margin:0 0 6px; scroll-margin-top:70px}
+.doc .sec{padding:0 0 52px; margin:0 0 52px; border-bottom:1px solid var(--rule)}
+.doc .sec:last-child{border-bottom:none}
+.doc .num{font-family:var(--mono); font-size:11px; letter-spacing:.19em; text-transform:uppercase;
+  color:var(--seal); margin:0 0 12px}
+.doc p{margin:0 0 16px; max-width:68ch}
+.doc p:last-child{margin-bottom:0}
+.doc strong{font-weight:600}
+.doc ul{margin:0 0 16px; padding-left:20px; max-width:68ch}
+.doc li{margin-bottom:7px}
+.doc code{font-family:var(--mono); font-size:.88em; background:var(--paper-deep);
+  padding:2px 6px; border:1px solid var(--rule); word-break:break-all}
+
+.callout{border-left:4px solid var(--seal); background:var(--paper-deep);
+  padding:18px 22px; margin:0 0 20px; max-width:68ch}
+.callout p{margin:0}
+.callout .lbl{font-family:var(--mono); font-size:10px; letter-spacing:.18em; text-transform:uppercase;
+  color:var(--ink-soft); display:block; margin-bottom:8px}
+
+.tbl{width:100%; border-collapse:collapse; margin:0 0 20px; font-size:14.5px}
+.tbl th{font-family:var(--mono); font-size:10.5px; letter-spacing:.14em; text-transform:uppercase;
+  color:var(--ink-soft); text-align:left; padding:9px 12px 9px 0; border-bottom:1px solid var(--ink)}
+.tbl td{padding:11px 12px 11px 0; border-bottom:1px solid var(--rule); vertical-align:top}
+.tbl td.n{font-family:var(--mono); text-align:right; white-space:nowrap}
+.tbl-scroll{overflow-x:auto; -webkit-overflow-scrolling:touch}
+
+.addr{font-family:var(--mono); font-size:12.5px; background:var(--paper-deep); border:1px solid var(--rule);
+  padding:13px 15px; margin:0 0 10px; word-break:break-all; max-width:68ch}
+.addr b{display:block; font-family:var(--body); font-weight:600; font-size:12px; letter-spacing:.1em;
+  text-transform:uppercase; color:var(--ink-soft); margin-bottom:6px}
+.addr a{text-decoration:underline; text-underline-offset:2px}
+
+.no-list{list-style:none; padding:0; max-width:68ch}
+.no-list li{padding:11px 0 11px 30px; border-bottom:1px solid var(--rule); position:relative; margin:0}
+.no-list li::before{content:"×"; position:absolute; left:6px; top:10px; color:var(--seal);
+  font-family:var(--display); font-size:16px}
+
+.yes-list{list-style:none; padding:0; max-width:68ch}
+.yes-list li{padding:11px 0 11px 30px; border-bottom:1px solid var(--rule); position:relative; margin:0}
+.yes-list li::before{content:"→"; position:absolute; left:4px; top:11px; color:var(--ink-soft);
+  font-family:var(--mono); font-size:13px}
+
+.foot{border-top:1px solid var(--ink); padding:34px 0 60px}
+.foot-links{display:flex; gap:20px; flex-wrap:wrap; font-family:var(--mono); font-size:12px;
+  letter-spacing:.11em; text-transform:uppercase; margin-bottom:18px}
+.foot-links a{text-decoration:none; border-bottom:1px solid var(--rule); padding-bottom:3px}
+.foot-links a:hover{border-color:var(--ink)}
+.foot-fine{font-size:12.5px; color:var(--ink-soft); max-width:62ch; line-height:1.55; margin:0}
+:focus-visible{outline:2px solid var(--seal); outline-offset:3px}
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="wrap masthead-in">
+    <a class="masthead-mark" href="./">CARD VAULT</a>
+    <div class="masthead-meta">
+      <a href="./">Home</a>
+      <span class="hide-sm">·</span>
+      <span class="hide-sm">Docs</span>
+      <span>·</span>
+      <span id="m-status">—</span>
+    </div>
+  </div>
+</header>
+
+<section class="head">
+  <div class="head-tone"></div>
+  <div class="wrap head-in">
+    <p class="kicker">Documentation</p>
+    <h1 class="head-title">How this<br>works</h1>
+    <p class="head-lede">Every mechanism, every address, and every commitment — written out in full, including the parts that are inconvenient. Nothing here asks you to take our word for it.</p>
+  </div>
+</section>
+
+<div class="wrap cols">
+
+  <nav class="toc">
+    <p class="toc-h">Contents</p>
+    <a href="#what">01 — What it is</a>
+    <a href="#loop">02 — The loop</a>
+    <a href="#fees">03 — The fee model</a>
+    <a href="#treasury">04 — The treasury</a>
+    <a href="#verify">05 — Verify it yourself</a>
+    <a href="#custody">06 — Custody</a>
+    <a href="#holders">07 — What holders get</a>
+    <a href="#not">08 — What it is not</a>
+    <a href="#commit">09 — The commitments</a>
+    <a href="#giveaway">10 — Why no giveaway</a>
+    <a href="#creator">11 — Creator holding</a>
+    <a href="#risks">12 — Risks</a>
+    <a href="#never">13 — What we will not do</a>
+  </nav>
+
+  <main class="doc">
+
+    <section class="sec" id="what">
+      <p class="num">Section 01</p>
+      <h2>What it is</h2>
+      <p>Card Vault is a coin on Solana. Trading it generates creator fees, and a fixed share of those fees is routed to a wallet that exists for one purpose: buying physical graded trading cards.</p>
+      <p>Those cards are photographed, documented, and kept. They are not distributed, raffled, or sold. The collection only grows.</p>
+      <p>That is the entire product. There is no application to use, no staking, no yield, and nothing to claim.</p>
+      <div class="callout">
+        <span class="lbl">The honest framing</span>
+        <p>This is an experiment testing one question: whether a coin can fund a real collection and give people a reason to keep watching that is not purely speculative. If the answer is no, it stops.</p>
+      </div>
+    </section>
+
+    <section class="sec" id="loop">
+      <p class="num">Section 02</p>
+      <h2>The loop</h2>
+      <p>Four steps, then it repeats.</p>
+      <div class="tbl-scroll">
+      <table class="tbl">
+        <tr><th style="width:70px">Step</th><th>What happens</th></tr>
+        <tr><td class="n">01</td><td><strong>Trade.</strong> Buying or selling the coin generates a creator fee on Pump.fun.</td></tr>
+        <tr><td class="n">02</td><td><strong>Split.</strong> The fee is divided at platform level between the Vault wallet and operations. No manual transfer sits in between.</td></tr>
+        <tr><td class="n">03</td><td><strong>Acquire.</strong> The Vault buys a graded card. Transaction hash, price and certificate number are published.</td></tr>
+        <tr><td class="n">04</td><td><strong>Show.</strong> The card becomes content. Content brings attention. Attention brings trading.</td></tr>
+      </table>
+      </div>
+      <p>The hypothesis is that collectibles generate content, content generates attention, and attention generates trading activity. It is a hypothesis, not a claim — and it is being tested in public.</p>
+    </section>
+
+    <section class="sec" id="fees">
+      <p class="num">Section 03</p>
+      <h2>The fee model</h2>
+      <p>This is the most misunderstood part of any project like this, so it is stated in full rather than summarised favourably.</p>
+      <div class="tbl-scroll">
+      <table class="tbl">
+        <tr><th>Phase</th><th class="n">Creator fee</th><th class="n">Total trade fee</th></tr>
+        <tr><td>Bonding curve, pre-graduation</td><td class="n">0.300%</td><td class="n">1.250%</td></tr>
+        <tr><td>PumpSwap pool, low market cap</td><td class="n">0.300%</td><td class="n">1.250%</td></tr>
+        <tr><td>PumpSwap pool, high market cap</td><td class="n">0.050%</td><td class="n">0.300%</td></tr>
+        <tr><td>Non-canonical pool</td><td class="n">0%</td><td class="n">0.300%</td></tr>
+      </table>
+      </div>
+      <div class="callout">
+        <span class="lbl">The inconvenient part</span>
+        <p><strong>The model is regressive.</strong> After graduation the creator fee scales <em>down</em> as market cap rises — from 0.300% to 0.050% for SOL-denominated coins. The more successful the coin becomes, the smaller the share that reaches the Vault. Any projection assuming a flat 0.300% is a best case, not an expectation.</p>
+      </div>
+      <p>Volume routed through non-canonical pools generates nothing at all. And <strong>market cap is not revenue</strong> — a coin can carry a large market cap while producing almost no fees, because fees come from trading volume, not from price.</p>
+      <p>Other platform mechanics: launching costs 0 SOL, the bonding curve completes at roughly 85 SOL, and there is a 0.015 SOL graduation fee. Fewer than 2% of coins launched on the platform ever graduate.</p>
+    </section>
+
+    <section class="sec" id="treasury">
+      <p class="num">Section 04</p>
+      <h2>The treasury</h2>
+      <p>Creator fees are split at platform level across two wallets, in the proportions below.</p>
+      <div id="split-table"></div>
+      <div class="callout">
+        <span class="lbl">The split is locked</span>
+        <p>Pump.fun states that rewards sharing <strong>cannot be changed again</strong> once saved. It was saved on 1 September 2026. Nobody can redirect it — the operator included. This is stronger than a policy, because there is no mechanism to reduce the Vault's share later.</p>
+      </div>
+      <p>The consequence runs both ways. The Vault address is now a permanent fee destination, so losing that key would strand its share at an address nobody can reach. It also means a future change of custody cannot re-route the fees: funds would have to be forwarded manually, and that forwarding would be published like any other movement.</p>
+      <div id="addresses"></div>
+    </section>
+
+    <section class="sec" id="verify">
+      <p class="num">Section 05</p>
+      <h2>Verify it yourself</h2>
+      <p>Nothing on this site requires trusting us. Every figure is derived from a public source you can check independently.</p>
+      <ul class="yes-list">
+        <li><strong>The balances.</strong> Paste either wallet address into Solscan. What you see is what the site reports.</li>
+        <li><strong>The split.</strong> The fee distribution is visible on the coin's page on Pump.fun, with each recipient and percentage listed.</li>
+        <li><strong>The numbers on this site.</strong> Every one is computed from <code>vault.json</code> in the public repository. Nothing is typed in by hand.</li>
+        <li><strong>The history.</strong> The repository's commit log is a timestamped, tamper-evident record of every change to that file.</li>
+        <li><strong>The cards.</strong> Each acquisition is published with its grading certificate number, checkable in PSA's own public database.</li>
+      </ul>
+      <div class="callout">
+        <span class="lbl">The rule this site follows</span>
+        <p>No number appears here that is not derived from a public address or a public certificate number. If a figure cannot be traced to one of those, it does not get published.</p>
+      </div>
+      <p>The certificate number matters more than it might appear. A receipt screenshot can be fabricated in two minutes. An entry in a third-party grading database cannot.</p>
+    </section>
+
+    <section class="sec" id="custody">
+      <p class="num">Section 06</p>
+      <h2>Custody</h2>
+      <p>The Vault is currently a <strong>single-signature wallet</strong>, not a multisig. One key can move the funds. This is stated plainly rather than implying guarantees that do not exist.</p>
+      <p>What the setup does provide is full auditability: anyone can read the balance and every transaction without asking us for anything.</p>
+      <p><strong>Why not a multisig yet.</strong> Deploying one was priced at roughly 0.1 SOL. With a single operator the only available threshold is 1-of-1, which authorises everything with one key and therefore buys no security over a plain wallet. Paying a large share of the project's declared budget for that, before the Vault holds anything and before demand is validated, would contradict the principle the project runs on.</p>
+      <p><strong>When that changes.</strong> Custody moves to a multisig when both conditions hold: the Vault holds enough that the deployment cost is a rounding error, and a genuine second signer exists. A second wallet controlled by the same person is not a second signer — it is theatre, and presenting it as protection would be misleading.</p>
+    </section>
+
+    <section class="sec" id="holders">
+      <p class="num">Section 07</p>
+      <h2>What holders get</h2>
+      <p>Nothing transferable. Specifically:</p>
+      <ul class="yes-list">
+        <li><strong>A vote</strong> on which card the Vault acquires next</li>
+        <li><strong>Attribution</strong> — acquisitions record the community proposal behind them</li>
+        <li><strong>Access</strong> — reveals, streams, the public catalogue</li>
+        <li><strong>A collection to watch</strong>, which only ever grows</li>
+      </ul>
+      <p>That is the honest list. It does not include a card, a share, or a return.</p>
+    </section>
+
+    <section class="sec" id="not">
+      <p class="num">Section 08</p>
+      <h2>What it is not</h2>
+      <p>This section is placed here, at full size, rather than in small type at the bottom — because it is the most important thing on the page.</p>
+      <ul class="no-list">
+        <li><strong>Not backing.</strong> The cards do not back the coin. Holding it is not a claim on the Vault or on anything in it.</li>
+        <li><strong>Not redeemable.</strong> There is no mechanism, now or planned, to exchange the coin for a card or for its value.</li>
+        <li><strong>Not a share.</strong> No ownership of any card, no share of revenue, no entitlement to creator fees.</li>
+        <li><strong>Not a giveaway.</strong> No giveaway is running. Holding does not enter you into anything.</li>
+        <li><strong>Not an investment.</strong> No return is promised or implied. The coin can go to zero, and most coins like it do.</li>
+        <li><strong>Not affiliated.</strong> No connection to One Piece, Pokémon, Magic: The Gathering, Yu-Gi-Oh!, Bandai, Toei, Shueisha, or any rights holder.</li>
+      </ul>
+      <p>The Vault is a collection bought with project revenue and documented in public. That is the whole of it.</p>
+    </section>
+
+    <section class="sec" id="commit">
+      <p class="num">Section 09</p>
+      <h2>The commitments</h2>
+      <p>There are two, and they are deliberately separate. Merging them would turn an honest deadline into a promise the project cannot keep.</p>
+      <h3 style="font-family:var(--display);font-size:19px;text-transform:uppercase;margin:26px 0 8px;letter-spacing:-.005em">The deadline — a date, not an amount</h3>
+      <p>On the committed date, the first card is bought <strong>with whatever the Vault holds</strong>, and the purchase is documented. If that is $40, the Vault acquires a $40 graded card and says exactly that. If the Vault is empty, this site will say so.</p>
+      <p>A deadline you can fail publicly is worth more than a target you can postpone privately.</p>
+      <h3 style="font-family:var(--display);font-size:19px;text-transform:uppercase;margin:26px 0 8px;letter-spacing:-.005em">The season target — the grail</h3>
+      <div id="target-box"></div>
+      <p>This is the card that defines the season. It is a <strong>destination, not a schedule</strong>, and the deadline does not commit to it. The revenue needed to reach it depends on the fee tier the coin is trading in, which moves with market cap. No projection is published, because any figure would be derived from an estimate and would read as a forecast the project does not make.</p>
+      <p>Season 1 commits to <strong>PSA-graded cards only</strong>. It is a self-imposed constraint: it narrows what can be bought in the lowest price brackets, and it makes every acquisition verifiable in a single public database.</p>
+    </section>
+
+    <section class="sec" id="giveaway">
+      <p class="num">Section 10</p>
+      <h2>Why there is no giveaway</h2>
+      <p>This is a deliberate design decision, not an omission, and the reasoning is published so it can be checked.</p>
+      <p>A mechanism where buying a token grants entry into a prize draw combines three elements: <strong>consideration</strong> (the purchase), <strong>chance</strong> (the draw), and <strong>a prize of value</strong>. Under Italian law that combination is a lottery, and lotteries are a state reserve — not a filing problem but a prohibition.</p>
+      <p>The regulated alternative, a <em>concorso a premi</em> under DPR 430/2001, requires being a registered business, filing with the ministry before the start, posting a bond equal to 100% of the prize value, and having a notary or Chamber of Commerce officer supervise the draw. That is incompatible with a project starting at nothing.</p>
+      <p>A possible future direction, only if the project generates real revenue, is a <strong>merit-based creative contest</strong> — original card art judged by a jury on published criteria — which sits outside the prize-competition regime because the prize is consideration for the work itself. Any such mechanism would be reviewed by a professional before being announced.</p>
+      <div class="callout">
+        <span class="lbl">Language discipline</span>
+        <p>Describing the Vault is free. Claiming it backs the coin is not: that would require authorisation as an asset-referenced token issuer under MiCA, including an authorised EU entity, own funds of at least €350,000 or 2% of reserves, segregated reserve assets held by a credit institution, and a permanent redemption right. This project makes no such claim, and never will while that is untrue.</p>
+      </div>
+    </section>
+
+    <section class="sec" id="creator">
+      <p class="num">Section 11</p>
+      <h2>Creator holding</h2>
+      <p>The plan was for the creator to hold nothing. Pump.fun makes that impossible: a coin created on the platform stays offchain until someone makes the first purchase, which is what deploys the mint and establishes the trading pair.</p>
+      <p>So the creator bought $1 to deploy it, and nothing since.</p>
+      <div id="creator-box"></div>
+      <p>It will never be sold. It is published here, in <code>vault.json</code>, and in the launch announcement — rather than left to be discovered on a block explorer later. A holding that has to be found is worth less than one that is declared.</p>
+    </section>
+
+    <section class="sec" id="risks">
+      <p class="num">Section 12</p>
+      <h2>Risks</h2>
+      <ul class="yes-list">
+        <li><strong>Market.</strong> Most coins of this kind fail to sustain any meaningful volume.</li>
+        <li><strong>Liquidity.</strong> Low liquidity produces extreme price movements in both directions.</li>
+        <li><strong>Regulatory.</strong> A token combined with participation mechanics creates obligations. MiCA Title II governs the offer; Title VI prohibits market manipulation.</li>
+        <li><strong>Intellectual property.</strong> Commercial use of existing anime or manga intellectual property creates copyright and trademark exposure. This project uses original artwork only and does not reproduce publisher artwork.</li>
+        <li><strong>Platform.</strong> Pump.fun's fees, mechanics and policies can change, and have changed repeatedly. The creator fee falls as market cap rises, and volume in non-canonical pools pays nothing.</li>
+        <li><strong>Community.</strong> The project can end up dominated by speculators rather than collectors.</li>
+        <li><strong>Reputation.</strong> Poor transparency or aggressive marketing would destroy trust permanently, and trust is the only asset here.</li>
+      </ul>
+    </section>
+
+    <section class="sec" id="never">
+      <p class="num">Section 13</p>
+      <h2>What we will not do</h2>
+      <ul class="no-list">
+        <li>Wash trading or manufactured volume</li>
+        <li>Fake holders, partnerships or announcements</li>
+        <li>Guaranteed returns or price targets</li>
+        <li>Redemption or buyback promises</li>
+        <li>Selling Vault cards for anything other than more Vault cards</li>
+        <li>Reproducing official card artwork or publisher logos</li>
+        <li>Launching a second coin to manufacture activity if this one fails</li>
+      </ul>
+      <p>Real activity, not artificial metrics. If there is no organic volume, the project stops — and stopping cleanly preserves the ability to try something else later, which a pump and dump does not.</p>
+    </section>
+
+  </main>
+</div>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-links" id="links"></div>
+    <p class="foot-fine">Card Vault is an experiment, not a financial product. Nothing here is investment, legal or financial advice. The regulatory reasoning on this page informed the project's design but is not a substitute for professional review. Cards held by the Vault are never sold except to acquire further cards for the Vault.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var $ = function(id){ return document.getElementById(id); };
+  var esc = function(s){ return String(s == null ? "" : s).replace(/[&<>"']/g, function(c){
+    return {"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c]; }); };
+  var usd = function(n){ return "$" + (n||0).toLocaleString("en-US",{maximumFractionDigits:0}); };
+
+  function solscan(a){ return "https://solscan.io/account/" + a; }
+
+  function render(v){
+    var tok = v.token||{}, w = v.wallets||{}, cfg = v.config||{}, se = v.season||{};
+    var alloc = cfg.allocation||{};
+
+    $("m-status").textContent = tok.contract ? "LIVE" : "PRE-LAUNCH";
+
+    // split table
+    $("split-table").innerHTML =
+      '<div class="tbl-scroll"><table class="tbl">'
+    + '<tr><th>Destination</th><th class="n">Share</th><th>Purpose</th></tr>'
+    + '<tr><td>Vault wallet</td><td class="n">'+Math.round((alloc.vault||0)*100)+'%</td>'
+    + '<td>Buys graded cards. Nothing else.</td></tr>'
+    + '<tr><td>Operations wallet</td><td class="n">'+Math.round((alloc.operations||0)*100)+'%</td>'
+    + '<td>Costs and reserve.</td></tr>'
+    + '</table></div>';
+
+    // addresses
+    var rows = [
+      ["Contract", tok.contract, "The coin itself"],
+      ["Vault wallet", w.vault, "Receives " + Math.round((alloc.vault||0)*100) + "% of creator fees"],
+      ["Operations wallet", w.operations, "Receives " + Math.round((alloc.operations||0)*100) + "% of creator fees"],
+      ["Creator wallet", w.creatorBootstrap, "Bootstrap holding, disclosed in section 11"]
+    ];
+    $("addresses").innerHTML = rows.filter(function(r){ return r[1]; }).map(function(r){
+      return '<div class="addr"><b>'+r[0]+' — '+esc(r[2])+'</b>'
+           + '<a href="'+solscan(esc(r[1]))+'" rel="noopener">'+esc(r[1])+'</a></div>';
+    }).join("");
+
+    // target
+    var tg = se.target;
+    if(tg){
+      var meta = [tg.ref, tg.grade, se.category].filter(Boolean).map(esc).join(" · ");
+      $("target-box").innerHTML =
+        '<div class="addr"><b>Season '+(se.number||1)+' target</b>'
+      + '<span style="font-family:var(--body);font-size:17px;font-weight:600">'+esc(tg.item)+'</span><br>'
+      + meta + ' — estimated ' + usd(tg.estimateUsd) + '</div>';
+    }
+
+    // creator holding
+    if(w.creatorBootstrap){
+      $("creator-box").innerHTML =
+        '<div class="addr"><b>Creator bootstrap wallet</b>'
+      + '<a href="'+solscan(esc(w.creatorBootstrap))+'" rel="noopener">'+esc(w.creatorBootstrap)+'</a>'
+      + '<span style="display:block;margin-top:9px;font-family:var(--body);font-size:13.5px;color:var(--ink-soft)">'
+      + '348,899 tokens — 0.035% of supply. Bought for $1 to deploy the coin. Never to be sold.</span></div>';
+    }
+
+    // footer links
+    var L = v.links||{};
+    var defs = [["Home","./"],["X",L.x],["Telegram",L.telegram],["TikTok",L.tiktok],
+                ["Instagram",L.instagram],["Source",L.repo],["vault.json","./vault.json"]];
+    $("links").innerHTML = defs.filter(function(d){ return d[1]; }).map(function(d){
+      return '<a href="'+esc(d[1])+'" rel="noopener">'+d[0]+'</a>';
+    }).join("");
+  }
+
+  fetch("./vault.json",{cache:"no-store"})
+    .then(function(r){ if(!r.ok) throw new Error(r.status); return r.json(); })
+    .then(render)
+    .catch(function(){
+      $("addresses").innerHTML = '<div class="addr"><b>Data unavailable</b>vault.json could not be loaded.</div>';
+    });
+})();
+</script>
+</body>
+</html>
