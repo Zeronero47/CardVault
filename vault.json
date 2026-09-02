@@ -1,7 +1,7 @@
 {
   "meta": {
     "project": "Card Vault",
-    "updated": "2026-09-01",
+    "updated": "2026-09-02",
     "currency": "USD",
     "rule": "Single source of truth for every number on the site. Never write a figure here that is not backed by a public transaction hash or a public grading certificate number."
   },
@@ -44,6 +44,8 @@
   "links": {
     "x": "https://x.com/CardVaultSOL",
     "telegram": "https://t.me/CardVaultSOL",
+    "tiktok": "https://www.tiktok.com/@cardvaultsol",
+    "instagram": null,
     "repo": "https://github.com/Zeronero47/CardVault"
   },
   "fees": [],

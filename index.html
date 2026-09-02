@@ -424,11 +424,13 @@ code{font-family:var(--mono); font-size:.92em}
     }).join("");
 
     var L = v.links||{};
-    var defs = [["X",L.x],["Telegram",L.telegram],["Source",L.repo],["vault.json","./vault.json"]];
-    $("links").innerHTML = defs.map(function(d){
-      return d[1] ? '<a href="'+esc(d[1])+'" rel="noopener">'+d[0]+'</a>'
-                  : '<a class="is-off" aria-disabled="true">'+d[0]+' — soon</a>';
-    }).join("");
+    var defs = [["X",L.x],["Telegram",L.telegram],["TikTok",L.tiktok],
+                ["Instagram",L.instagram],["Source",L.repo],["vault.json","./vault.json"]];
+    $("links").innerHTML = defs.filter(function(d){ return d[1] || d[0]==="Instagram"; })
+      .map(function(d){
+        return d[1] ? '<a href="'+esc(d[1])+'" rel="noopener">'+d[0]+'</a>'
+                    : '<a class="is-off" aria-disabled="true">'+d[0]+' — soon</a>';
+      }).join("");
   }
 
   fetch("./vault.json",{cache:"no-store"})
